@@ -4,9 +4,6 @@ import static primitives.Util.isZero;
 
 public class Vector extends Point {
 
-
-
-
     /**
      * ctr for Vector (gets 3 numbers)
      * @param x
