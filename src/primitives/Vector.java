@@ -76,7 +76,6 @@ public class Vector extends Point {
 
     /**
      * return normalize vector
-     * @param o
      * @return
      */
     public Vector normalize(){
@@ -84,11 +83,6 @@ public class Vector extends Point {
         return new Vector(xyz.d1/dis,xyz.d2/dis,xyz.d3/dis);
     }
 
-    //return if the objects are equals
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
 
     /**
      * The function calculates the squared length of the vector
@@ -104,6 +98,12 @@ public class Vector extends Point {
      */
     public double length(){
         return Math.sqrt(lengthSquared());
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
     }
 
     @Override
