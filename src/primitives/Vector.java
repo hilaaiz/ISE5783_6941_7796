@@ -13,7 +13,7 @@ public class Vector extends Point {
     public Vector(double x ,double y, double z ){
 
         super(x,y,z);
-        if(this.equals(Double3.ZERO))
+        if(this.xyz.equals(Double3.ZERO))
             throw new IllegalArgumentException("zero vector");
     }
 
@@ -23,7 +23,7 @@ public class Vector extends Point {
      */
     Vector(Double3 xyz) {
         super(xyz);
-        if(this.equals(Double3.ZERO))
+        if(this.xyz.equals(Double3.ZERO))
             throw new IllegalArgumentException("zero vector");
     }
 
@@ -71,12 +71,13 @@ public class Vector extends Point {
                 xyz.d1*myVector.xyz.d2-xyz.d2*myVector.xyz.d1);
     }
 
+
     /**
      * return normalize vector
      * @return
      */
     public Vector normalize(){
-        double dis= distance(this);
+        double dis= length();
         return new Vector(xyz.d1/dis,xyz.d2/dis,xyz.d3/dis);
     }
 
@@ -88,6 +89,7 @@ public class Vector extends Point {
     public double lengthSquared(){
         return this.dotProduct(this);
     }
+
 
     /**
      * The function calculates the length of the vector

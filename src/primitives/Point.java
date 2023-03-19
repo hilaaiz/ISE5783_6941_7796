@@ -6,6 +6,8 @@ import java.lang.Math;
 public class Point {
     Double3 xyz;
 
+
+
     /**
      * c-ctor
      * @param xyz
@@ -58,7 +60,7 @@ public class Point {
      * @return
      */
     public double distance(Point myPoint){
-        return Math.sqrt(distance(myPoint));
+        return Math.sqrt(distanceSquared(myPoint));
     }
 
     @Override
