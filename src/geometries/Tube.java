@@ -4,6 +4,9 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
+
 public class Tube extends RadialGeometry{
 
     /**
@@ -36,8 +39,20 @@ public class Tube extends RadialGeometry{
 
 
     @Override
-    public Vector getNormal(Point p) {
-        return null;
+    public Vector getNormal(Point P) {
+        Point P0= axisRay.getP0();
+        Vector v= axisRay.getDirection();
+
+        Vector P0toP= P.subtract(P0);
+        double t= alignZero(P0toP.dotProduct(v));
+
+        if (isZero(t))
+            return P0toP.normalize();
+
+        Point O= P0.add(v.scale(t));
+        Vector PtoO= O.subtract(P); //TODO: CHECK LATER the direction
+        return PtoO.normalize();
+
     }
 
     @Override

@@ -25,4 +25,11 @@ public class Triangle extends Polygon{
                 ", plane=" + plane +
                 '}';
     }
+
+    /**
+     * getnormal override function
+     * @param p
+     * @return
+     */
+    public Vector getNormal(Point p){ return super.getNormal(p);}
 }

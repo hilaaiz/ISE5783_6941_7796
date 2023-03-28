@@ -42,6 +42,9 @@ private Point center;
 
     @Override
     public Vector getNormal(Point p) {
-        return null;
+       if(p.equals(center))
+           throw new IllegalArgumentException("point can not be equals to the center of the sphere");
+       Vector OP =p.subtract(center);
+       return OP.normalize();//לשנות לשורה אחת
     }
 }

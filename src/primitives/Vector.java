@@ -77,8 +77,8 @@ public class Vector extends Point {
      * @return
      */
     public Vector normalize(){
-        double dis= length();
-        return new Vector(xyz.d1/dis,xyz.d2/dis,xyz.d3/dis);
+        double len= length();
+        return new Vector(xyz.reduce(len));
     }
 
 

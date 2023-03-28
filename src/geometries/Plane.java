@@ -5,10 +5,8 @@ import primitives.Vector;
 
 public class Plane implements Geometry {
 
-    private Point P0;
-    private Vector normal;
-
-
+    final private Point P0;
+    final private Vector normal;
 
 
     /**
@@ -18,9 +16,9 @@ public class Plane implements Geometry {
      * @param p3
      */
     public Plane(Point p1, Point p2, Point p3) {
-        Vector v1 = p2.subtract(p1);
-        Vector v2 = p3.subtract(p1);
-        this.normal = null; //v1.crossProduct(v2).normalize();
+        Vector v1 = p2.subtract(p1); //vector from p1 towards p2
+        Vector v2 = p3.subtract(p1); //vector from p1 towards p3
+        normal = v1.crossProduct(v2).normalize(); //v1.crossProduct(v2).normalize();
         P0= p1;
     }
 
@@ -53,6 +51,10 @@ public class Plane implements Geometry {
         return normal;
     }
 
+    @Override
+    public Vector getNormal(Point p) {
+        return null;
+    }
 
     @Override
     public String toString() {
@@ -60,10 +62,5 @@ public class Plane implements Geometry {
                 "P0=" + P0 +
                 ", normal=" + normal +
                 '}';
-    }
-
-    @Override
-    public Vector getNormal(Point p) {
-        return null;
     }
 }

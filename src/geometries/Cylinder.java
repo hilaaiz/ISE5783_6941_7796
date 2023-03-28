@@ -9,8 +9,7 @@ public class Cylinder extends Tube {
     /**
      * height of the cylinder
      */
-    private double height;
-
+    final private double height;
 
 
     /**
@@ -33,17 +32,28 @@ public class Cylinder extends Tube {
     }
 
 
+    // region getNormal
+    @Override
     public Vector getNormal(Point point) {
-        return null;
+        Point P0 = axisRay.getP0();//TODO: exception for uncorect points
+        if (point.distance(P0) <= radius)    // on the base circle of the cylinder.
+            return axisRay.getDirection().scale(-1);
+
+        Vector heightVector = axisRay.getDirection().scale(height);
+        P0 = P0.add(heightVector);
+
+        if (point.distance(P0) <= radius)    // on the second base circle of the cylinder.
+            return axisRay.getDirection();
+
+        return super.getNormal(point);              // on the casing of the cylinder.
     }
+    //endregion
 
 
     @Override
     public String toString() {
-        return "Cylinder{" +
-                "height=" + height +
+        return "height=" + height +
                 ", axisRay=" + axisRay +
-                ", radius=" + radius +
-                '}';
+                ", radius=" + radius ;
     }
 }
