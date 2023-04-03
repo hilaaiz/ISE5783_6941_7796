@@ -40,7 +40,7 @@ class PointTest {
                 "ERROR: Point - Point does not work correctly");
     }
 
-    
+
     /**
      * Test method for {@link primitives.Point#distanceSquared(Point)}.
      */

@@ -8,7 +8,7 @@ import primitives.Vector;
 /**
  * Testing Triangle
  *
- * @author Tamar Edri
+ * @author Hila
  *
  */
 

@@ -12,6 +12,8 @@ private Point center;
 
 
 
+
+
     /**
      * ctr for Sphere
      * @param radius
@@ -33,6 +35,15 @@ private Point center;
 
 
     @Override
+    public Vector getNormal(Point p) {
+        if(p.equals(center))
+            throw new IllegalArgumentException("point can not be equals to the center of the sphere");
+        Vector OP =p.subtract(center);
+        return OP.normalize();//לשנות לשורה אחת
+    }
+
+
+    @Override
     public String toString() {
         return "Sphere{" +
                 "center=" + center +
@@ -40,11 +51,5 @@ private Point center;
                 '}';
     }
 
-    @Override
-    public Vector getNormal(Point p) {
-       if(p.equals(center))
-           throw new IllegalArgumentException("point can not be equals to the center of the sphere");
-       Vector OP =p.subtract(center);
-       return OP.normalize();//לשנות לשורה אחת
-    }
+
 }
