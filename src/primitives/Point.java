@@ -50,8 +50,9 @@ public class Point {
      * @return
      */
     public double distanceSquared(Point myPoint){
-        Point p= new Point(xyz.subtract(myPoint.xyz));
-        return ((p.xyz.d1*p.xyz.d1)+(p.xyz.d2*p.xyz.d2)+(p.xyz.d3*p.xyz.d3));
+        return  (xyz.d1 - myPoint.xyz.d1) * (xyz.d1 - myPoint.xyz.d1) +
+                (xyz.d2 - myPoint.xyz.d2) * (xyz.d2 - myPoint.xyz.d2) +
+                (xyz.d3 - myPoint.xyz.d3) * (xyz.d3 - myPoint.xyz.d3);
     }
 
     /**
