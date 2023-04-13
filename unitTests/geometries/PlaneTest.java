@@ -19,7 +19,7 @@ class PlaneTest {
      * Test method for {@link geometries.Plane#Plane(Point, Point, Point)}.
      */
     @Test
-    void testConstractor() {
+    void testConstructor() {
         // ============ Equivalence Partitions Tests ==============
 
         // TC01: Correct construction of a plane with different Points
@@ -53,7 +53,9 @@ class PlaneTest {
         // ============ Equivalence Partitions Tests ==============
         // TC01: There is a simple single test here
         Plane pl = new Plane(new Point(0, 0, 1), new Point(1, 0, 0), new Point(0, 1, 0));
-        assertEquals(1, pl.getNormal().length(), "Bad normal to plane");
-        //צריך לבדוקגם שהוא אכן מאונך למישור
+        double sqrt3 = Math.sqrt(1d / 3);
+        assertEquals(new Vector(sqrt3, sqrt3, sqrt3), pl.getNormal(), "Bad normal to plane");
+        //todo בדיקה לשני הנורמליים האפשריים שיכולים להתקבל
     }
 }
+

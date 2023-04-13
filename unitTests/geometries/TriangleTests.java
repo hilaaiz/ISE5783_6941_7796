@@ -33,7 +33,7 @@ class TriangleTests {
         // =============== Boundary Values Tests ==================
 
         // TC02: Vertex on a same line
-        assertThrows(IllegalArgumentException.class, //
+        assertThrows(IllegalArgumentException.class,
                 () -> new Triangle(new Point(0, 1, 0), new Point(0, 0, 0), new Point(0, 6, 0)),
                 "Constructed a triangle with vertex on a single line");
 
@@ -48,6 +48,7 @@ class TriangleTests {
                 "Constructed a triangle with vertices on a side");
 
     }
+
 
     /**
      * Test method for {@link geometries.Triangle#getNormal(primitives.Point)}.

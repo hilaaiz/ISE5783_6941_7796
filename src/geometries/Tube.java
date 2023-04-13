@@ -50,8 +50,8 @@ public class Tube extends RadialGeometry{
             return P0toP.normalize();
 
         Point O= P0.add(v.scale(t));
-        Vector PtoO= O.subtract(P); //TODO: CHECK LATER the direction
-        return PtoO.normalize();
+        Vector OtoP= P.subtract(O); //TODO: CHECK LATER the direction
+        return OtoP.normalize();
 
     }
 

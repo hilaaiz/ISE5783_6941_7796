@@ -7,12 +7,12 @@ public class Ray {
     /**
      * The starting point of the ray
      */
-    private Point p0;
+    private final Point p0;
 
     /**
      * The ray direction vector
      */
-    private Vector dir;
+    private final Vector dir;
 
 
 
@@ -50,11 +50,6 @@ public class Ray {
         if (o instanceof Ray other)
             return this.p0.equals(other.p0) && this.dir.equals(other.dir);
         return false;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(p0, dir);
     }
 
     @Override

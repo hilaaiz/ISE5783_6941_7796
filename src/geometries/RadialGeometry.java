@@ -21,6 +21,7 @@ public abstract class RadialGeometry implements Geometry{
      */
     RadialGeometry(double radius){
         this.radius=radius;
+        //todo לבדוק קבלה של רדיוס שלילי
     }
 
     /**

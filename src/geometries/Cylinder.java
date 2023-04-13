@@ -35,7 +35,7 @@ public class Cylinder extends Tube {
     // region getNormal
     @Override
     public Vector getNormal(Point point) {
-        Point P0 = axisRay.getP0();//TODO: exception for uncorect points
+        Point P0 = axisRay.getP0();
         if (point.distance(P0) <= radius)    // on the base circle of the cylinder.
             return axisRay.getDirection().scale(-1);
 
