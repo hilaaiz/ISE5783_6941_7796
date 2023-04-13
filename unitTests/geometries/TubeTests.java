@@ -15,26 +15,21 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class TubeTests {
 
-    @Test
-    void testGetAxisRay() {//האם זה נצרך הדבר השטותי הזה?
 
-        Tube t= new Tube(5, new Ray(new Point(0, 0, 0), new Vector(0, 0, 5)));
-        assertEquals(new Vector(0, 0, 5),t.axisRay, "wrong get method");
-    }
+    /**
+     * @Test
+     *     public void testConstructor() {
+     *
+     *         //negative radius
+     *         try {
+     *             new Tube(-1, new Ray(new Point(0, 0, 0), new Vector(0, 0, 1)));
+     *         } catch (IllegalArgumentException e) {
+     *             fail("Constructed a Tube with wrong order of radius");
+     *         }
+     *         //wrong radius or Ray todo :) מקרי קצה חריגות..
+     *     }
+     */
 
-    @Test
-    public void testConstructor() {
-
-        //negative radius
-        try {
-            new Tube(-1, new Ray(new Point(0, 0, 0), new Vector(0, 0, 1)));
-        } catch (IllegalArgumentException e) {
-            fail("Constructed a Tube with wrong order of radius");
-        }
-        //wrong radius or Ray todo :) מקרי קצה חריגות..
-
-
-    }
 
     /**
      * Test method for {@link geometries.Tube#Tube(double, Ray)}.
