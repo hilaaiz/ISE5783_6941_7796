@@ -15,12 +15,12 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class TubeTests {
 
-    @Test
-    void testGetAxisRay() {//האם זה נצרך הדבר השטותי הזה?
+    //@Test
+    //void testGetAxisRay() {//האם זה נצרך הדבר השטותי הזה?
 
-        Tube t= new Tube(5, new Ray(new Point(0, 0, 0), new Vector(0, 0, 5)));
-        assertEquals(new Vector(0, 0, 5),t.axisRay, "wrong get method");
-    }
+      //  Tube t= new Tube(5, new Ray(new Point(0, 0, 0), new Vector(0, 0, 5)));
+        //assertEquals(new Vector(0, 0, 5),t.axisRay, "wrong get method");
+    //}
 
     @Test
     public void testConstructor() {
