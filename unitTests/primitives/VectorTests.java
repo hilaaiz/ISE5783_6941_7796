@@ -36,7 +36,10 @@ class VectorTests {
     void testAdd() {
         // ============ Equivalence Partitions Tests ==============
         //TC01: Add two regular vector one to another
-        assertEquals(new Vector(1, 5, 1),(new Vector(1, 2, 3)).add(new Vector(0, 3, -2)),"ERROR: add vectors does not work correctly");
+        assertEquals(
+                new Vector(1, 5, 1),
+                new Vector(1, 2, 3).add(new Vector(0, 3, -2)),
+                "ERROR: add vectors does not work correctly");
 
 
         //=============== Boundary Values Tests ==================
@@ -138,7 +141,9 @@ class VectorTests {
         // ============ Equivalence Partitions Tests ==============
 
         // TC01: Correct calculation of a vectors length
-        assertTrue(isZero((new Vector(1,2,3)).lengthSquared() - 14),"ERROR: lengthSquared() wrong value");
+        assertEquals(14,
+                new Vector(1,2,3).lengthSquared(),
+                "ERROR: lengthSquared() wrong value");
 
     }
 
