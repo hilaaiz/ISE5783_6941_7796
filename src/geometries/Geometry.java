@@ -1,9 +1,12 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
 
-public interface Geometry {
+import java.util.List;
+
+public interface Geometry extends Intersectable {
 
     /**
      * get the normal of the geometry
@@ -11,4 +14,5 @@ public interface Geometry {
      * @return
      */
     public Vector getNormal(Point p);
+
 }
