@@ -3,7 +3,10 @@ package geometries;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+import java.util.List;
 
 /**
  * Testing Triangle
@@ -62,4 +65,58 @@ class TriangleTests {
         assertEquals(new Vector(sqrt3, sqrt3, sqrt3), tr.getNormal(new Point(0, 0, 1)), "Bad normal to triangle");
     }
 
+
+    /**
+     * Test method for {@link geometries.Triangle#getNormal(primitives.Point)}.
+     */
+    @Test
+    void testFindIntersections() {
+
+        // ============ Equivalence Partitions Tests ==============
+        Triangle tr = new Triangle(new Point(2, 0, 0), new Point(0, 2,0 )
+                , new Point(0, -2, 0));
+        Ray r;
+        Point p;
+        List<Point> result;
+
+
+        // TC01: Ray intersects inside the triangle
+        r = new Ray(new Point(0, 0, -2), new Vector(1, 0, 2));
+        p = new Point(1, 0, 0);
+        result = tr.findIntersections(r);
+
+        assertEquals(result.size(), 1, "Ray intersects inside the triangle " +
+                "- wrong number of intersections");
+        assertEquals(p, result.get(0), "Ray intersects inside the triangle - wrong Point of intersection");
+
+
+        // TC02: Ray outside the triangle against edge
+        r = new Ray(new Point(-1, 0, -1), new Vector(0, 0, 1));
+        assertNull(tr.findIntersections(r), "Ray outside the triangle against edge - found an intersection");
+
+
+        // TC03: Ray outside the triangle against vertex
+        r = new Ray(new Point(3, 0, -1), new Vector(0, 0, 1));
+        assertNull(tr.findIntersections(r), "Ray outside the triangle against vertex" +
+                " - found an intersection");
+
+
+        // =============== Boundary Values Tests ==================
+
+        // TC04: Ray begins before the triangle and intersects on the edge
+        r = new Ray(new Point(0,0,-1), new Vector(0, 0, 1));
+        assertNull( tr.findIntersections(r),
+                "Ray begins before the triangle and intersects on the edge - didn't return null");
+
+        // TC05: Ray begins before the triangle and intersects on the vertex
+        r = new Ray(new Point(2,0,-1), new Vector(0, 0, 1));
+        assertNull( tr.findIntersections(r),
+                "Ray begins before the triangle and intersects on the vertex - didn't return null");
+
+        // TC06: Ray starts before the triangle and intersects on edge's continuation
+        r = new Ray(new Point(0,3,-1), new Vector(0, 0, 1));
+        assertNull( tr.findIntersections(r),
+                "Ray starts before the triangle and intersects on edge's continuation - didn't return null");
+
+    }
 }

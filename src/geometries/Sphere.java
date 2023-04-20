@@ -1,7 +1,10 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+import java.util.List;
 
 public class Sphere extends RadialGeometry {
 
@@ -51,4 +54,8 @@ private Point center;
     }
 
 
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        return null;
+    }
 }

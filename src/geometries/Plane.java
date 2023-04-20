@@ -4,7 +4,10 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.LinkedList;
 import java.util.List;
+
+import static primitives.Util.*;
 
 public class Plane implements Geometry {
 
@@ -29,11 +32,11 @@ public class Plane implements Geometry {
     /**
      * ctr for Plane
      * @param p
-     * @param v
+     * @param normal
      */
-    public Plane (Point p,Vector v ){
+    public Plane (Point p,Vector normal ){
         P0= p;
-        normal=v.normalize();
+        this.normal=normal.normalize();
     }
 
 
@@ -69,7 +72,25 @@ public class Plane implements Geometry {
 
 
     @Override
-    public List<Point> findIntsersections(Ray ray) {
-        return null;
+    public List<Point> findIntersections(Ray ray) {
+        if(this.P0.equals(ray.getP0())) //ray starts at the reference point of the plane
+            return null;
+
+        Vector vecFromRayToP0 = this.P0.subtract(ray.getP0());
+        double numerator = this.normal.dotProduct(vecFromRayToP0);
+        if(isZero(numerator)) // ray starts on the plane
+            return null;
+
+        double denominator = this.normal.dotProduct(ray.getDirection());
+        if(isZero(denominator)) // ray is parallel to the plane
+            return null;
+
+        double t = numerator / denominator;
+        if(t < 0 ) // ray starts after the plane
+            return null;
+
+        List<Point> intersections = new LinkedList<>();
+        intersections.add(ray.getPoint(t));
+        return intersections;
     }
 }
