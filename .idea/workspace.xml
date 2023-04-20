@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_04_2023_21_31_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_04_2023_21_31__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/geometries/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/geometries/SphereTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,9 +85,9 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SphereTest.testFindIntsersections">
+  <component name="RunManager" selected="JUnit.All in ISE5783_6941_7796">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="geometries.PlaneTest" />
+      <option name="MAIN_CLASS_NAME" value="test.Main" />
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
@@ -111,7 +107,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SphereTest.testFindIntsersections" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlaneTest.testConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
@@ -120,8 +116,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.SphereTest" />
-      <option name="METHOD_NAME" value="testFindIntsersections" />
+      <option name="MAIN_CLASS_NAME" value="geometries.PlaneTest" />
+      <option name="METHOD_NAME" value="testConstructor" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SphereTest.testFindIntsersections" />
         <item itemvalue="JUnit.All in ISE5783_6941_7796" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TriangleTests.testGetNormal" />
         <item itemvalue="JUnit.TriangleTests.testConstructor" />
+        <item itemvalue="JUnit.PlaneTest.testConstructor" />
       </list>
     </recent_temporary>
   </component>

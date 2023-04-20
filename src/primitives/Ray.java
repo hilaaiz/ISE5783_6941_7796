@@ -42,6 +42,20 @@ public class Ray {
         return dir;
     }
 
+    /**
+     * returns the point on the ray that is in a given distance from the head of the ray
+     * @param t -the distance from the head of the ray to point
+     * @return the point that is in the given distance from the head of the ray
+     */
+    public Point getPoint(double t) {
+        try {
+            return p0.add(dir.scale(t));
+        }
+        catch(Exception e){
+            return p0;
+        }
+    }
+
 
 
     @Override
@@ -59,4 +73,6 @@ public class Ray {
                 ", dir=" + dir.toString() +
                 '}';
     }
+
+
 }
