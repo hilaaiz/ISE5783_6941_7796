@@ -92,7 +92,5 @@ public class Plane implements Geometry {
         List<Point> intersections = new LinkedList<>();
         intersections.add(ray.getPoint(t));
         return intersections;
-    public List<Point> findIntersections(Ray ray) {
-        return null;
     }
 }

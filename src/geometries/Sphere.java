@@ -6,14 +6,13 @@ import primitives.Vector;
 
 import java.util.List;
 
+import static primitives.Util.alignZero;
+
 public class Sphere extends RadialGeometry {
 
     /*the center point of the sphere*/
-private Point center;
-
-//private double radius
-
-
+    private Point center;
+    private double radius;
 
 
     /**
@@ -56,6 +55,45 @@ private Point center;
 
     @Override
     public List<Point> findIntersections(Ray ray) {
+        Point p0 = ray.getP0();
+        Vector v = ray.getDirection();
+
+        if(p0.equals(center))
+            return List.of(center.add(v.scale(radius)));
+        Vector u = center.subtract(p0);
+
+        double tm = alignZero(v.dotProduct(u));
+        double d = alignZero(Math.sqrt(u.lengthSquared() - tm * tm));
+
+        if(d>=radius)
+            return null;
+
+        double th = alignZero(Math.sqrt(radius*radius -d*d));
+        if (th<=0)
+            return null;
+
+        double t1 = alignZero(tm + th);
+        double t2 = alignZero(tm - th);
+
+        if (t1 > 0 && t2 > 0)
+        {
+            Point p1 = p0.add(v.scale(t1));
+            Point p2 = p0.add(v.scale(t2));
+            return List.of(p1,p2);
+        }
+        if (t1 > 0)
+        {
+            Point p1 = p0.add(v.scale(t1));
+            return List.of(p1);
+        }
+        if (t2 > 0)
+        {
+            Point p2 = p0.add(v.scale(t2));
+            return List.of(p2);
+        }
+
         return null;
+
     }
+
 }
