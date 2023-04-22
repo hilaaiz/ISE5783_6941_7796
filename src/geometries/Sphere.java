@@ -12,7 +12,6 @@ public class Sphere extends RadialGeometry {
 
     /*the center point of the sphere*/
     private Point center;
-    private double radius;
 
 
     /**

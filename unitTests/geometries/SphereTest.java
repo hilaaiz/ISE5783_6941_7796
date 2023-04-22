@@ -29,18 +29,22 @@ class SphereTest {
     @Test
     public void testFindIntersections() {
 
-        Sphere sphere = new Sphere(1d, new Point (1, 0, 0));
+        Sphere sphere = new Sphere(1, new Point (1, 0, 0));
         Sphere sp = new Sphere(5,new Point(1,0,0));
+
+        double b=sphere.getRadius();
 
         // ============ Equivalence Partitions Tests ==============
         // TC01: Ray's line is outside the sphere (0 points)
         assertNull(sphere.findIntersections(new Ray(new Point(-1, 0, 0), new Vector(1, 1, 0))),
                 "Ray's line out of sphere");
+       b=sphere.getRadius();
         // TC02: Ray starts before and crosses the sphere (2 points)
         Point p1 = new Point(0.0651530771650466, 0.355051025721682, 0);
         Point p2 = new Point(1.53484692283495, 0.844948974278318, 0);
         List<Point> result = sphere.findIntersections(new Ray(new Point(-1, 0, 0),
                 new Vector(3, 1, 0)));
+        b=sphere.getRadius();
         assertEquals(2, result.size(), "Wrong number of points");
         if (result.get(0).getX() > result.get(1).getX())
             result = List.of(result.get(1), result.get(0));

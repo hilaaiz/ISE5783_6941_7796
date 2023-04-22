@@ -83,6 +83,39 @@ public class Polygon implements Geometry {
 
    @Override
    public List<Point> findIntersections(Ray ray) {
-      return null;
+      List<Point> intersections = plane.findIntersections(ray);
+      if (intersections == null)
+         return null;
+      Point intersectionPoint = intersections.get(0);
+
+      try {
+
+         Vector edgeVector = this.vertices.get(0).subtract(this.vertices.get(this.size - 1)).normalize();
+         Vector vecToPoint = intersectionPoint.subtract(this.vertices.get(size - 1)).normalize();
+         Vector normalVector = edgeVector.crossProduct(vecToPoint).normalize();	// the first vector to compare to the others
+
+         for (int i = 0; i < this.size - 1; i++) {
+            edgeVector = this.vertices.get(i + 1).subtract(this.vertices.get(i)).normalize();
+            vecToPoint = intersectionPoint.subtract(this.vertices.get(i)).normalize();
+
+            // the point is on the edge
+            if( edgeVector.equals(vecToPoint) || edgeVector.equals(edgeVector.scale(-1)))
+               return null;
+
+            Vector crossVector = edgeVector.crossProduct(vecToPoint).normalize();
+
+            if ( normalVector.dotProduct(crossVector) < 0 /*!normalVector.equals(crossVector)*/)	// at least 1 vec is not the same, then the point is outside the polygon
+               return null;
+         }
+        // intersections.clear(); // the point is inside the polygon
+         //intersections.add(intersectionPoint);
+         return intersections;
+      }
+      catch (IllegalArgumentException e){
+         // an exception was thrown because the zero vector was constructed because
+         // the point of intersection was on a vertex or on an edge
+         return null;
+      }
    }
+
 }
