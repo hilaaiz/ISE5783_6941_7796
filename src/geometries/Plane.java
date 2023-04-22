@@ -89,8 +89,12 @@ public class Plane implements Geometry {
         if(t < 0 ) // ray starts after the plane
             return null;
 
-        List<Point> intersections = new LinkedList<>();
-        intersections.add(ray.getPoint(t));
+        //List<Point> intersections = new LinkedList<>();
+        //intersections.add(ray.getPoint(t));
+
+
+        List<Point> intersections = List.of(ray.getPoint(t)); //צורת בניה שביקשו במקום מה שלמעלה
+
         return intersections;
     }
 }

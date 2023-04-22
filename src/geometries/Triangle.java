@@ -67,9 +67,13 @@ public class Triangle extends Polygon{
             if( !(d1 > 0 && d2 > 0 && d3 > 0) && !( d1 < 0 && d2 < 0 && d3 < 0))
                 return null;
 
-            List<Point> PointsTriangle = new LinkedList<>();
-            PointsTriangle.add( intersectionsOnPlane.get(0));
-            return PointsTriangle;
+            //List<Point> PointsTriangle = new LinkedList<>();
+            //PointsTriangle.add( intersectionsOnPlane.get(0));
+            //return PointsTriangle;
+
+            List<Point> pointsTriangle = List.of(intersectionsOnPlane.get(0));
+            return pointsTriangle;
+
 
         }
         catch (Exception x)
