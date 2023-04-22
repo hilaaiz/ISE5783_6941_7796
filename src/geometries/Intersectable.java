@@ -10,7 +10,6 @@ import java.util.List;
  */
 public interface Intersectable {
 
-
     /**
      * function for finding the intersection points between ray and the geometries
      * @param ray

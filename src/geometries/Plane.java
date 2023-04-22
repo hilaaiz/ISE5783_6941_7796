@@ -32,7 +32,7 @@ public class Plane implements Geometry {
     /**
      * ctr for Plane
      * @param p
-     * @param normal
+     * @param v
      */
     public Plane (Point p,Vector normal ){
         P0= p;

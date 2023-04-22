@@ -26,6 +26,18 @@ public class Point {
         xyz=new Double3(x,y,z);
     }
 
+    public double getX() {
+        return xyz.d1;
+    }
+
+    public double getY() {
+        return xyz.d2;
+    }
+
+    public double getZ() {
+        return xyz.d3;
+    }
+
     /**
      * return new point from this to myVector
      * @param myVector
