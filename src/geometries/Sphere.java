@@ -59,14 +59,17 @@ public class Sphere extends RadialGeometry {
 
         if(p0.equals(center))
             return List.of(center.add(v.scale(radius)));
+
         Vector u = center.subtract(p0);
 
         double tm = alignZero(v.dotProduct(u));
         double d = alignZero(Math.sqrt(u.lengthSquared() - tm * tm));
 
+        //the ray direction is above the sphere
         if(d>=radius)
             return null;
 
+        //the ray is outside the sphere
         double th = alignZero(Math.sqrt(radius*radius -d*d));
         if (th<=0)
             return null;
