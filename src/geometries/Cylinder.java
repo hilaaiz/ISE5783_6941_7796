@@ -4,6 +4,11 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static primitives.Util.alignZero;
+
 public class Cylinder extends Tube {
 
     /**
@@ -49,6 +54,36 @@ public class Cylinder extends Tube {
     }
     //endregion
 
+
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        List<Point> helpIntersections = super.findIntersections(ray);
+
+        List<Point> pointList = new ArrayList<>();
+
+        if(helpIntersections != null) {
+            for (Point point : helpIntersections) {
+                double projection = point.subtract(axisRay.getP0()).dotProduct(axisRay.getDirection());
+                if (alignZero(projection) > 0 && alignZero(projection - this.height) < 0)
+                    pointList.add(point);
+            }
+        }
+
+        // intersect with base
+        Circle base = new Circle(axisRay.getP0(), radius, axisRay.getDirection());
+        helpIntersections = base.findIntersections(ray);
+        if(helpIntersections != null)
+            pointList.add(helpIntersections.get(0));
+
+        base = new Circle(axisRay.getPoint(height), radius, axisRay.getDirection());
+        helpIntersections = base.findIntersections(ray);
+        if(helpIntersections != null)
+            pointList.add( helpIntersections.get(0));
+
+        if (pointList.size() == 0)
+            return null;
+        return pointList;
+    }
 
     @Override
     public String toString() {
