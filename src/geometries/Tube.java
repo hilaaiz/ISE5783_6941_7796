@@ -67,6 +67,64 @@ public class Tube extends RadialGeometry{
 
     @Override
     public List<Point> findIntersections(Ray ray) {
+
+        // solve for t : At^2 + Bt + C = 0
+        // axisRay params: pa,va, ray params: p,vr
+
+        Vector vr = ray.getDirection();
+        Vector va= axisRay.getDirection();
+        if (vr.equals(va) || vr.equals(va.scale(-1))) //ray parallel to axisRay
+            return null;
+        double vrDotVa = vr.dotProduct(va);//to calculate t1 t2 later
+
+        if (ray.getP0().equals(axisRay.getP0())) { //ray start on axis's head point
+            if (isZero(vrDotVa)) //ray also orthogonal to axis
+                return List.of(ray.getPoint(radius));
+            double t = radius / (vr.subtract(va.scale(vrDotVa)).length());
+            return List.of(ray.getPoint(t));
+        }
+
+        Vector vecDeltaP = ray.getP0().subtract(axisRay.getP0());
+        double deltaPDotVa = vecDeltaP.dotProduct(va);
+        if (va.equals(vecDeltaP.normalize()) || va.equals(vecDeltaP.normalize())) { //ray start along axis
+            if (isZero(vrDotVa)) //ray also orthogonal to axis
+                return List.of(ray.getPoint(radius));
+            double t = radius / (vr.subtract(va.scale(vrDotVa)).length());
+            return List.of(ray.getPoint(t));
+        }
+
+        // is either of the vectors, v or deltaP, orthogonal to the vector va-
+        // We don't need the multiplier, we'll use them themselves
+        Vector v1 = isZero(vrDotVa) ? vr : vr.subtract(va.scale(vrDotVa));
+        Vector v2 = isZero(deltaPDotVa) ? vecDeltaP : vecDeltaP.subtract(va.scale(deltaPDotVa));
+
+        // A = (vr - (vr,va)va)^2
+        // B = 2(vr-(vr,va)va , deltaP-(deltaP,va)va)
+        // C = (deltaP - (deltaP,va)va)^2 - r^2
+        // where: deltaP: p-pa , (x,y): dot product
+
+        double A = v1.lengthSquared();
+        double B = v1.dotProduct(v2) * 2;
+        double C = v2.lengthSquared() - radius * radius;
+
+        double discriminant = B * B - 4 * A * C; //in order to solve the quadratic equation
+        if (discriminant <= 0)
+            return null; // ray doesn't intersect at all OR is tangent to tube
+
+        double t1 = alignZero((-B - Math.sqrt(discriminant)) / (2 * A));
+        double t2 = alignZero((-B + Math.sqrt(discriminant)) / (2 * A));
+        if (t1 > 0 && t2 > 0)
+            return List.of(ray.getPoint(t1), ray.getPoint(t2));
+        if (t1 > 0)
+            return List.of(ray.getPoint(t1));
+        if (t2 > 0)
+            return List.of(ray.getPoint(t2));
+
+        // The points are on the line that is equations
+        // but not on the ray that has a specific starting point
         return null;
+
     }
+
+
 }

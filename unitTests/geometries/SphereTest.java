@@ -33,7 +33,7 @@ class SphereTest {
         Sphere sp = new Sphere(5,new Point(1,0,0));
 
         double b=sphere.getRadius();
-
+        double r= sp.getRadius();
         // ============ Equivalence Partitions Tests ==============
         // TC01: Ray's line is outside the sphere (0 points)
         assertNull(sphere.findIntersections(new Ray(new Point(-1, 0, 0), new Vector(1, 1, 0))),
