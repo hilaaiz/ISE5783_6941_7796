@@ -7,6 +7,13 @@ import primitives.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/**
+ * Testing Cylinder
+ *
+ * @author Moriya Moskovich
+ *
+ */
 class CylinderTest {
 
     /**
@@ -44,6 +51,10 @@ class CylinderTest {
                 "Bad normal for a point on the the corner between the casing and the base of the cylinder");
     }
 
+
+    /**
+     * Test method for {@link geometries.Cylinder#findIntersections(Ray)}.
+     */
     @Test
     void testFindIntersections() {
         // ============ Equivalence Partitions Tests ==============
