@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Testing Planes
  *
- * @author Moriya
+ * @author Moriya Moskovich
  *
  */
 class PlaneTest {

@@ -7,12 +7,22 @@ import primitives.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+/**
+ * Testing Geometries
+ *
+ * @author Moriya Moskovich
+ *
+ */
 class GeometriesTest {
 
     @Test
     void add() {
     }
 
+    /**
+     * Test method for {@link Geometries#findIntersections(Ray)}.
+     */
     @Test
     void findIntersections() {
         Geometries geometries = new Geometries(
