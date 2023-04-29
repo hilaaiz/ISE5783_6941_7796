@@ -6,7 +6,10 @@ import java.lang.Math;
 public class Point {
     Double3 xyz;
 
-
+    /**
+     * Constant object of Point at the center of our cartesian coordinate system
+     */
+    public static final Point ZERO = new Point(Double3.ZERO);
 
     /**
      * c-ctor
