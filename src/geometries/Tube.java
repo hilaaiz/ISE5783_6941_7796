@@ -96,7 +96,7 @@ public class Tube extends RadialGeometry{
         // is either of the vectors, v or deltaP, orthogonal to the vector va-
         // We don't need the multiplier, we'll use them themselves
         Vector v1 = isZero(vrDotVa) ? vr : vr.subtract(va.scale(vrDotVa));
-        Vector v2 = isZero(deltaPDotVa) ? vecDeltaP : vecDeltaP.subtract(va.scale(deltaPDotVa));
+        Vector v2 = isZero(deltaPDotVa) ? vecDeltaP : vecDeltaP.subtract(va.scale(deltaPDotVa));//todo: orthogonal
 
         // A = (vr - (vr,va)va)^2
         // B = 2(vr-(vr,va)va , deltaP-(deltaP,va)va)

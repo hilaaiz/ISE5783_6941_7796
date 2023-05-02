@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/unitTests/renderer/IntegrationTest.java" afterDir="false" />
+    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="IntegrationTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,8 +85,8 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CylinderTest.testFindIntersections">
-    <configuration name="CameraTest.testConstructRay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CameraTest">
+    <configuration name="CameraTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
@@ -97,8 +96,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="renderer" />
       <option name="MAIN_CLASS_NAME" value="renderer.CameraTest" />
-      <option name="METHOD_NAME" value="testConstructRay" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,6 +112,38 @@
       <option name="PACKAGE_NAME" value="geometries" />
       <option name="MAIN_CLASS_NAME" value="geometries.CylinderTest" />
       <option name="METHOD_NAME" value="testFindIntersections" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntegrationTest.cameraRayPlaneIntegration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_6941_7796" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.IntegrationTest" />
+      <option name="METHOD_NAME" value="cameraRayPlaneIntegration" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntegrationTest.cameraRaySphereIntegration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_6941_7796" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.IntegrationTest" />
+      <option name="METHOD_NAME" value="cameraRaySphereIntegration" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -135,43 +165,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PolygonTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_6941_7796" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="geometries.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.PolygonTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TriangleTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_6941_7796" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="geometries.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.TriangleTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CameraTest" />
+        <item itemvalue="JUnit.IntegrationTest.cameraRaySphereIntegration" />
+        <item itemvalue="JUnit.IntegrationTest.cameraRayPlaneIntegration" />
         <item itemvalue="JUnit.CylinderTest.testFindIntersections" />
         <item itemvalue="JUnit.IntegrationTest.cameraRayTriangleIntegration" />
-        <item itemvalue="JUnit.CameraTest.testConstructRay" />
-        <item itemvalue="JUnit.PolygonTests" />
-        <item itemvalue="JUnit.TriangleTests" />
       </list>
     </recent_temporary>
   </component>
@@ -185,6 +185,8 @@
       <updated>1677595046652</updated>
       <workItem from="1677595047795" duration="1835000" />
       <workItem from="1677598648915" duration="2908000" />
+      <workItem from="1682807159528" duration="46000" />
+      <workItem from="1683033634778" duration="2208000" />
     </task>
     <task id="LOCAL‎-00001" summary="puse">
       <created>1678879646384</created>
@@ -284,7 +286,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1682541974806</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="IntegrationTest">
+      <created>1682807104173</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682807104173</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +322,8 @@
     <MESSAGE value="Intersections of a ray with a Sphere and Polygon" />
     <MESSAGE value="stage3" />
     <MESSAGE value="Cylinder tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cylinder tests" />
+    <MESSAGE value="IntegrationTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="IntegrationTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -329,9 +339,9 @@
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/geometries/Tube.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="34" />
+          <url>file://$PROJECT_DIR$/unitTests/geometries/TubeTests.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
