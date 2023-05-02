@@ -84,7 +84,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CylinderTest.testFindIntersections">
+  <component name="RunManager" selected="JUnit.IntegrationTest">
     <configuration name="CameraTest.testConstructRay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
@@ -117,16 +117,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GeometriesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="geometries.*" />
+          <option name="PATTERN" value="renderer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="geometries" />
-      <option name="MAIN_CLASS_NAME" value="geometries.GeometriesTest" />
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.IntegrationTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.IntegrationTest" />
         <item itemvalue="JUnit.CylinderTest.testFindIntersections" />
         <item itemvalue="JUnit.CameraTest.testConstructRay" />
         <item itemvalue="JUnit.PolygonTests" />
         <item itemvalue="JUnit.TriangleTests" />
-        <item itemvalue="JUnit.GeometriesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -281,7 +281,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1682541974806</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL‎-00015" summary="Cylinder tests">
+      <created>1683035858542</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL‎-00015" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1683035858542</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
