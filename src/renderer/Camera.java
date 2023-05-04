@@ -9,6 +9,10 @@ import java.util.MissingResourceException;
 
 import static primitives.Util.isZero;
 
+
+/**
+ * Camera to take the picture
+ */
 public class Camera {
 
     /**
@@ -60,6 +64,9 @@ public class Camera {
 
     //region constructor
     /**
+     * @param p0  camera position
+     * @param vUp camera upward vector
+     * @param vTo camera front vector
      * @throws IllegalArgumentException throws an exception if
      *         the reference vectors (vUp, vTo) are not orthogonal
      */
@@ -74,7 +81,7 @@ public class Camera {
     }
     //endregion
 
-    //region setImageWriter
+    //region ImageWriter setters
     /**
      * set the image writer
      * @return the camera itself. builder pattern

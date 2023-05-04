@@ -7,8 +7,15 @@ import scene.Scene;
 
 import java.util.List;
 
+/**
+ * A class that inherits from RayTracerBase to trace rays in a scene
+ */
 public class RayTracerBasic extends RayTracerBase {
 
+    /**
+     * RayTracerBasic Constructor.
+     * @param scene the scene we trace rays in.
+     */
     public RayTracerBasic(Scene scene) {
         super(scene);
     }
