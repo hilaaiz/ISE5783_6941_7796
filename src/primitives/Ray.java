@@ -1,5 +1,6 @@
 package primitives;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Ray {
@@ -57,6 +58,31 @@ public class Ray {
     }
 
 
+    //region findClosestGeoPoint
+    /**
+     * find the closest Point to the head of the ray
+     * @param points a list of Points
+     * @return the closest Point
+     */
+    public Point findClosestPoint(List<Point> points) {
+        if (points == null)
+            return null;
+
+        Point closestPoint = points.get(0);
+        double distance = closestPoint.distanceSquared(this.p0);
+
+        for (Point point : points) {
+            double d = point.distanceSquared(this.p0);
+            if(distance > d)    // if there is a closer point then 'point', replace the values
+            {
+                closestPoint = point;
+                distance = d;
+            }
+        }
+        return closestPoint;
+    }
+    //endregion
+
 
     @Override
     public boolean equals(Object o) {
@@ -73,6 +99,7 @@ public class Ray {
                 ", dir=" + dir.toString() +
                 '}';
     }
+
 
 
 }
