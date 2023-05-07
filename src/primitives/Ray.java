@@ -3,6 +3,8 @@ package primitives;
 import java.util.List;
 import java.util.Objects;
 
+import static primitives.Util.isZero;
+
 public class Ray {
 
     /**
@@ -49,12 +51,8 @@ public class Ray {
      * @return the point that is in the given distance from the head of the ray
      */
     public Point getPoint(double t) {
-        try {
-            return p0.add(dir.scale(t));
-        }
-        catch(Exception e){
-            return p0;
-        }
+        if (isZero(t)) return p0;
+        return p0.add(dir.scale(t));
     }
 
 

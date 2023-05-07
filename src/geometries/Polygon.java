@@ -84,7 +84,7 @@ public class Polygon implements Geometry {
    @Override
    public List<Point> findIntersections(Ray ray) {
       List<Point> intersections = plane.findIntersections(ray);
-      if (intersections == null)
+      if (isNotExistIntersections(intersections))
          return null;
       Point intersectionPoint = intersections.get(0);
 
@@ -116,6 +116,10 @@ public class Polygon implements Geometry {
          // the point of intersection was on a vertex or on an edge
          return null;
       }
+   }
+
+   private static boolean isNotExistIntersections(List<Point> intersections) {
+      return intersections == null;
    }
 
 }

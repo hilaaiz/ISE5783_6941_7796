@@ -86,7 +86,7 @@ public class Tube extends RadialGeometry{
 
         Vector vecDeltaP = ray.getP0().subtract(axisRay.getP0());
         double deltaPDotVa = vecDeltaP.dotProduct(va);
-        if (va.equals(vecDeltaP.normalize()) || va.equals(vecDeltaP.normalize())) { //ray start along axis
+        if (va.equals(vecDeltaP.normalize()) || va.equals(vecDeltaP.normalize().scale(-1))) { //ray start along axis
             if (isZero(vrDotVa)) //ray also orthogonal to axis
                 return List.of(ray.getPoint(radius));
             double t = radius / (vr.subtract(va.scale(vrDotVa)).length());

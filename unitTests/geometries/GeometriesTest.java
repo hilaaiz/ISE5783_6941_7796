@@ -28,7 +28,8 @@ class GeometriesTest {
         Geometries geometries = new Geometries(
                 new Sphere(2,new Point(2,0,0)),
                 new Plane(new Point(1,1,0.5), new Vector(0, 0, 1)),
-                new Triangle(new Point(0, 1, 0), new Point(0, -1, 0), new Point(3,0,0)));
+                new Triangle(new Point(0, 1, 0), new Point(0, -1, 0), new Point(3,0,0))
+        );
 
         // ============ Equivalence Partitions Tests ==============
 

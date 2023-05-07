@@ -57,12 +57,12 @@ public class Cylinder extends Tube {
 
     @Override
     public List<Point> findIntersections(Ray ray) {
-        List<Point> helpIntersections = super.findIntersections(ray);
+        List<Point> intersections = super.findIntersections(ray);
 
         List<Point> pointList = new ArrayList<>();
 
-        if(helpIntersections != null) {
-            for (Point point : helpIntersections) {
+        if(intersections != null) {
+            for (Point point : intersections) {
                 double projection = point.subtract(axisRay.getP0()).dotProduct(axisRay.getDirection());
                 if (alignZero(projection) > 0 && alignZero(projection - this.height) < 0)
                     pointList.add(point);
@@ -71,14 +71,14 @@ public class Cylinder extends Tube {
 
         // intersect with base
         Circle base = new Circle(axisRay.getP0(), radius, axisRay.getDirection());
-        helpIntersections = base.findIntersections(ray);
-        if(helpIntersections != null)
-            pointList.add(helpIntersections.get(0));
+        intersections = base.findIntersections(ray);
+        if(intersections != null)
+            pointList.add(intersections.get(0));
 
         base = new Circle(axisRay.getPoint(height), radius, axisRay.getDirection());
-        helpIntersections = base.findIntersections(ray);
-        if(helpIntersections != null)
-            pointList.add( helpIntersections.get(0));
+        intersections = base.findIntersections(ray);
+        if(intersections != null)
+            pointList.add( intersections.get(0));
 
         if (pointList.size() == 0)
             return null;
