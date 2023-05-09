@@ -11,7 +11,7 @@ import primitives.Vector;
 /** Polygon class represents two-dimensional polygon in 3D Cartesian coordinate
  * system
  * @author Dan */
-public class Polygon implements Geometry {
+public class Polygon extends Geometry {
    /** List of polygon's vertices */
    protected final List<Point> vertices;
    /** Associated plane in which the polygon lays */
@@ -81,12 +81,19 @@ public class Polygon implements Geometry {
    @Override
    public Vector getNormal(Point point) { return plane.getNormal(); }
 
+
+   /**
+    * Finds all intersection GeoPoints of a ray and a geometric entity
+    *
+    * @param ray the ray that intersect with the geometric entity.
+    * @return list of intersection Geopoints.
+    */
    @Override
-   public List<Point> findIntersections(Ray ray) {
-      List<Point> intersections = plane.findIntersections(ray);
-      if (intersections == null)
+   protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+      List<GeoPoint> intersections = plane.findGeoIntersectionsHelper(ray);
+      if (isNotExistIntersections(intersections))
          return null;
-      Point intersectionPoint = intersections.get(0);
+      Point intersectionPoint = intersections.get(0).point;
 
       try {
 
@@ -107,7 +114,7 @@ public class Polygon implements Geometry {
             if ( normalVector.dotProduct(crossVector) < 0 /*!normalVector.equals(crossVector)*/)	// at least 1 vec is not the same, then the point is outside the polygon
                return null;
          }
-        // intersections.clear(); // the point is inside the polygon
+         // intersections.clear(); // the point is inside the polygon
          //intersections.add(intersectionPoint);
          return intersections;
       }
@@ -116,6 +123,10 @@ public class Polygon implements Geometry {
          // the point of intersection was on a vertex or on an edge
          return null;
       }
+   }
+
+   private static boolean isNotExistIntersections(List<GeoPoint> intersections) {
+      return intersections == null;
    }
 
 }

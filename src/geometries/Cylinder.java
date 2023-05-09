@@ -56,29 +56,29 @@ public class Cylinder extends Tube {
 
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
-        List<Point> helpIntersections = super.findIntersections(ray);
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        List<GeoPoint> intersections = super.findGeoIntersectionsHelper(ray);
 
-        List<Point> pointList = new ArrayList<>();
+        List<GeoPoint> pointList = new ArrayList<>();
 
-        if(helpIntersections != null) {
-            for (Point point : helpIntersections) {
-                double projection = point.subtract(axisRay.getP0()).dotProduct(axisRay.getDirection());
+        if(intersections != null) {
+            for (GeoPoint geoPoint : intersections) {
+                double projection = geoPoint.point.subtract(axisRay.getP0()).dotProduct(axisRay.getDirection());
                 if (alignZero(projection) > 0 && alignZero(projection - this.height) < 0)
-                    pointList.add(point);
+                    pointList.add(new GeoPoint(this,geoPoint.point));
             }
         }
 
         // intersect with base
         Circle base = new Circle(axisRay.getP0(), radius, axisRay.getDirection());
-        helpIntersections = base.findIntersections(ray);
-        if(helpIntersections != null)
-            pointList.add(helpIntersections.get(0));
+        intersections = base.findGeoIntersectionsHelper(ray);
+        if(intersections != null)
+            pointList.add(new GeoPoint(this,intersections.get(0).point));
 
         base = new Circle(axisRay.getPoint(height), radius, axisRay.getDirection());
-        helpIntersections = base.findIntersections(ray);
-        if(helpIntersections != null)
-            pointList.add( helpIntersections.get(0));
+        intersections = base.findGeoIntersectionsHelper(ray);
+        if(intersections != null)
+            pointList.add(new GeoPoint(this, intersections.get(0).point));
 
         if (pointList.size() == 0)
             return null;
