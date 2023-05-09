@@ -41,9 +41,9 @@ public class Triangle extends Polygon{
 
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
 
-        List<Point> intersectionsOnPlane = this.plane.findIntersections(ray);
+        List<GeoPoint> intersectionsOnPlane = this.plane.findGeoIntersectionsHelper(ray);
         if(intersectionsOnPlane == null) //the ray doesn't intersect the plane
             return null;
 
@@ -71,7 +71,7 @@ public class Triangle extends Polygon{
             //PointsTriangle.add( intersectionsOnPlane.get(0));
             //return PointsTriangle;
 
-            List<Point> pointsTriangle = List.of(intersectionsOnPlane.get(0));
+            List<GeoPoint> pointsTriangle = List.of(new GeoPoint(this,intersectionsOnPlane.get(0).point));
             return pointsTriangle;
 
 

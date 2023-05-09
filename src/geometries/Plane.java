@@ -9,7 +9,7 @@ import java.util.List;
 
 import static primitives.Util.*;
 
-public class Plane implements Geometry {
+public class Plane extends Geometry {
 
     final private Point P0;
     final private Vector normal;
@@ -32,7 +32,7 @@ public class Plane implements Geometry {
     /**
      * ctr for Plane
      * @param p
-     * @param v
+     * @param normal
      */
     public Plane (Point p,Vector normal ){
         P0= p;
@@ -71,8 +71,15 @@ public class Plane implements Geometry {
     }
 
 
+
+    /**
+     * Finds all intersection GeoPoints of a ray and a geometric entity
+     *
+     * @param ray the ray that intersect with the geometric entity.
+     * @return list of intersection Geopoints.
+     */
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         if(this.P0.equals(ray.getP0())) //ray starts at the reference point of the plane
             return null;
 
@@ -92,9 +99,6 @@ public class Plane implements Geometry {
         //List<Point> intersections = new LinkedList<>();
         //intersections.add(ray.getPoint(t));
 
-
-        List<Point> intersections = List.of(ray.getPoint(t)); //צורת בניה שביקשו במקום מה שלמעלה
-
-        return intersections;
+        return List.of(new GeoPoint(this, ray.getPoint(t))); //צורת בניה שביקשו במקום מה שלמעלה
     }
 }

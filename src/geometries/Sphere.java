@@ -98,4 +98,55 @@ public class Sphere extends RadialGeometry {
 
     }
 
+    /**
+     * Finds all intersection GeoPoints of a ray and a geometric entity
+     *
+     * @param ray the ray that intersect with the geometric entity.
+     * @return list of intersection Geopoints.
+     */
+    @Override
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        Point p0 = ray.getP0();
+        Vector v = ray.getDirection();
+
+        if(p0.equals(center))
+            return List.of(new GeoPoint(this, center.add(v.scale(radius))));
+
+        Vector u = center.subtract(p0);
+
+        double tm = alignZero(v.dotProduct(u));
+        double d = alignZero(Math.sqrt(u.lengthSquared() - tm * tm));
+
+        //the ray direction is above the sphere
+        if(d>=radius)
+            return null;
+
+        //the ray is outside the sphere
+        double th = alignZero(Math.sqrt(radius*radius -d*d));
+        if (th<=0)
+            return null;
+
+        double t1 = alignZero(tm + th);
+        double t2 = alignZero(tm - th);
+
+        if (t1 > 0 && t2 > 0)
+        {
+            Point p1 = ray.getPoint(t1);
+            Point p2 = ray.getPoint(t2);
+            return List.of(new GeoPoint(this,p1),new GeoPoint(this,p2));
+        }
+        if (t1 > 0)
+        {
+            Point p1 = ray.getPoint(t1);
+            return List.of(new GeoPoint(this,p1));
+        }
+        if (t2 > 0)
+        {
+            Point p2 = ray.getPoint(t2);
+            return List.of(new GeoPoint(this,p2));
+        }
+
+        return null;
+    }
+
 }

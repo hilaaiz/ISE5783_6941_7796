@@ -1,5 +1,7 @@
 package primitives;
 
+import geometries.Intersectable.GeoPoint;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -16,8 +18,6 @@ public class Ray {
      * The ray direction vector
      */
     private final Vector dir;
-
-
 
     /**
      * ctr for ray
@@ -56,30 +56,43 @@ public class Ray {
     }
 
 
-    //region findClosestGeoPoint
     /**
-     * find the closest Point to the head of the ray
-     * @param points a list of Points
-     * @return the closest Point
+     * Method for finding the closest point to the head of the ray in a given list of points
+     * @param points List of points
+     * @return Closest point to the head of the ray
      */
     public Point findClosestPoint(List<Point> points) {
-        if (points == null)
+        return points == null || points.isEmpty() ? null
+                : findClosestGeoPoint(points.stream().map(p -> new GeoPoint(null, p)).toList()).point;
+    }
+
+
+    /**
+     * Method for finding the closest GeoPoint to the head of the ray in a given list of points
+     * @param lst List of points
+     * @return Closest GeoPoint to the head of the ray
+     */
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> lst) {
+        //In case of empty list return null
+        if (lst == null) {
             return null;
+        }
 
-        Point closestPoint = points.get(0);
-        double distance = closestPoint.distanceSquared(this.p0);
-
-        for (Point point : points) {
-            double d = point.distanceSquared(this.p0);
-            if(distance > d)    // if there is a closer point then 'point', replace the values
-            {
-                closestPoint = point;
-                distance = d;
+        GeoPoint p = null;
+        double d = Double.POSITIVE_INFINITY;
+        //Iterating through the list. Once we find smaller distance
+        //than we have we replace the values.
+        //This goes on until the end of the list.
+        for (GeoPoint pnt : lst) {
+            double distance = this.p0.distance(pnt.point);
+            if (d > distance) {
+                d = distance;
+                p = pnt;
             }
         }
-        return closestPoint;
+
+        return p;
     }
-    //endregion
 
 
     @Override

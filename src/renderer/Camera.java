@@ -55,9 +55,6 @@ public class Camera {
      */
     ImageWriter imageWriter;
 
-    /**
-     *
-     */
     RayTracerBase rayTracerBase;//todo:/**/
 
 
@@ -97,7 +94,7 @@ public class Camera {
      * set the rey tracer
      * @return the camera itself. builder pattern
      */
-    public Camera setRayTracerBase(RayTracerBase rayTracerBase) {
+    public Camera setRayTracer(RayTracerBase rayTracerBase) {
         this.rayTracerBase = rayTracerBase;
         return this;
     }

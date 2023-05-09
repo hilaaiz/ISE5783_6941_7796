@@ -12,7 +12,7 @@ import static primitives.Util.alignZero;
 /**
  * represent a Circle in 3D
  */
-public class Circle implements Geometry {
+public class Circle extends Geometry {
     Plane plane;
     Point center;
     double radius;
@@ -29,18 +29,16 @@ public class Circle implements Geometry {
     }
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
-        List<Point> planeIntersection = this.plane.findIntersections(ray);
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        List<GeoPoint> planeIntersection = this.plane.findGeoIntersectionsHelper(ray);
         if(planeIntersection == null)
             return null;
 
-        Point p = planeIntersection.get(0);
+        Point p = planeIntersection.get(0).point;
 
         if(alignZero(p.distanceSquared(this.center) - this.radius * this.radius) >= 0)
             return null;
 
-        planeIntersection = new ArrayList<>();
-        planeIntersection.add(p);
-        return planeIntersection;
+        return List.of(new GeoPoint(this,p));
     }
 }

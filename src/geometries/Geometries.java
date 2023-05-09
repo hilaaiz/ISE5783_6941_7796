@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Geometries implements Intersectable {
+public class Geometries extends Intersectable {
 
-    private List<Intersectable> intersectableGeometries;
+    private final List<Intersectable> intersectableGeometries;
 
 
     //region default constructor
@@ -38,18 +38,20 @@ public class Geometries implements Intersectable {
         for (Intersectable geometry : geometries) {
             intersectableGeometries.add(geometry);
         }
-    }//todo: לבדוק האם זה תקין הלולאה מבחינת יעילות
+    }
 
-
-    //endregion
-
+    /**
+     * Finds all intersection GeoPoints of a ray and a geometric entity
+     *
+     * @param ray the ray that intersect with the geometric entity.
+     * @return list of intersection Geopoints.
+     */
     @Override
-    public List<Point> findIntersections(Ray ray) {
-
-        List<Point> Intersections = null;
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        List<GeoPoint> Intersections = null;
 
         for (Intersectable intersectable : this.intersectableGeometries) {
-            List<Point> currentIntersection = intersectable.findIntersections(ray);
+            List<GeoPoint> currentIntersection = intersectable.findGeoIntersectionsHelper(ray);
             if (currentIntersection != null) {// intersection was found
                 if (Intersections == null)
                     Intersections = new LinkedList<>();
