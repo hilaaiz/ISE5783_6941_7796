@@ -98,8 +98,8 @@ public class Camera {
      *
      * @return the camera itself. builder pattern
      */
-    public Camera setRayTracer(RayTracerBase rayTracerBase) {
-        this.rayTracer = rayTracerBase;
+    public Camera setRayTracer(RayTracerBase rayTracer) {
+        this.rayTracer = rayTracer;
         return this;
     }
     //endregion
@@ -182,7 +182,7 @@ public class Camera {
      *
      * @throws MissingResourceException
      */
-    public void renderImage() throws MissingResourceException {
+    public Camera renderImage() throws MissingResourceException {
         if (imageWriter == null || rayTracer == null || width == 0 || height == 0 || distance == 0)
             throw new MissingResourceException("Camera is missing some fields", "Camera", "field");
 
@@ -195,6 +195,8 @@ public class Camera {
                 Ray ray = this.constructRay(nX, nY, j, i);
                 imageWriter.writePixel(j, i, rayTracer.traceRay(ray));
             }
+
+        return this;
 
     }
 
@@ -232,7 +234,7 @@ public class Camera {
      *
      * @throws MissingResourceException if the imageWriter in uninitialized - unable to generate the image
      */
-    void writeToImage() throws MissingResourceException {
+    public void writeToImage() throws MissingResourceException {
         if (imageWriter == null)
             throw new MissingResourceException("there is no image writer", "Camera", "field");
 

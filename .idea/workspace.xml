@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="stage6 part 1" />
+    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="stage6 part 1">
+      <change afterPath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lighting/Light.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lighting/LightSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lighting/PointLight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lighting/SpotLight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/primitives/Material.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unitTests/lighting/LightsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lighting/AmbientLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/AmbientLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -77,54 +91,55 @@
       <recent name="geometries" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="lighting" />
       <recent name="renderer" />
       <recent name="geometries" />
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RenderTests.basicRenderTwoColorTest">
-    <configuration name="ImageWriterTest.writeToImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.LightsTests">
+    <configuration name="LightsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="renderer.*" />
+          <option name="PATTERN" value="lighting.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.ImageWriterTest" />
-      <option name="METHOD_NAME" value="writeToImage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_6941_7796" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.IntegrationTest" />
+      <option name="PACKAGE_NAME" value="lighting" />
+      <option name="MAIN_CLASS_NAME" value="lighting.LightsTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PointTest.distance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LightsTests.sphereDirectional" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="primitives.*" />
+          <option name="PATTERN" value="lighting.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="primitives" />
-      <option name="MAIN_CLASS_NAME" value="primitives.PointTest" />
-      <option name="METHOD_NAME" value="distance" />
+      <option name="PACKAGE_NAME" value="lighting" />
+      <option name="MAIN_CLASS_NAME" value="lighting.LightsTests" />
+      <option name="METHOD_NAME" value="sphereDirectional" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LightsTests.trianglesSpot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_6941_7796" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lighting.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="lighting" />
+      <option name="MAIN_CLASS_NAME" value="lighting.LightsTests" />
+      <option name="METHOD_NAME" value="trianglesSpot" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LightsTests" />
+        <item itemvalue="JUnit.LightsTests.trianglesSpot" />
+        <item itemvalue="JUnit.LightsTests.sphereDirectional" />
         <item itemvalue="JUnit.RenderTests.basicRenderTwoColorTest" />
         <item itemvalue="JUnit.RayTest.testFindClosestPoint" />
-        <item itemvalue="JUnit.PointTest.distance" />
-        <item itemvalue="JUnit.ImageWriterTest.writeToImage" />
-        <item itemvalue="JUnit.IntegrationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -334,7 +349,8 @@
     <MESSAGE value="stage4" />
     <MESSAGE value="stage5" />
     <MESSAGE value="stage6 part 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="stage6 part 1" />
+    <MESSAGE value="stage6 part 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="stage6 part 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

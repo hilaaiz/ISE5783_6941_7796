@@ -8,9 +8,8 @@ import primitives.Double3;
  * Class that represents an ambient light.
  * Ambient light is an omni-directional, fixed intensity and fixed color type of light.
  */
-public class AmbientLight {
+public class AmbientLight extends Light{
 
-    Color intensity;
 
     /**
      * Constructor that takes a Color object and an attenuation coefficient (Double3) and return
@@ -19,7 +18,7 @@ public class AmbientLight {
      * @param Ka Attenuation coefficient
      */
     public AmbientLight(Color Ia, Double3 Ka) {
-        this.intensity = Ia.scale(Ka);
+        super(Ia.scale(Ka));
     }
 
     /**
@@ -29,7 +28,7 @@ public class AmbientLight {
      * @param Ka Attenuation coefficient
      */
     public AmbientLight(Color Ia, double Ka) {
-        this.intensity = Ia.scale(Ka);
+        super(Ia.scale(Ka));
     }
 
     /**
@@ -38,11 +37,5 @@ public class AmbientLight {
      */
     public static final AmbientLight NONE=new AmbientLight(Color.BLACK,Double3.ZERO);
 
-    /**
-     * Intensity field getter
-     * @return intensity (Color)
-     */
-    public Color getIntensity() {
-        return intensity;
-    }
+
 }
