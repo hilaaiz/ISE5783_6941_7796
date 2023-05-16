@@ -69,12 +69,12 @@ public class Ray {
 
     /**
      * Method for finding the closest GeoPoint to the head of the ray in a given list of points
-     * @param lst List of points
+     * @param points List of points
      * @return Closest GeoPoint to the head of the ray
      */
-    public GeoPoint findClosestGeoPoint(List<GeoPoint> lst) {
-        //In case of empty list return null
-        if (lst == null) {
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> points) {
+        //TODO:
+        if (points == null) {
             return null;
         }
 
@@ -83,8 +83,8 @@ public class Ray {
         //Iterating through the list. Once we find smaller distance
         //than we have we replace the values.
         //This goes on until the end of the list.
-        for (GeoPoint pnt : lst) {
-            double distance = this.p0.distance(pnt.point);
+        for (GeoPoint pnt : points) {
+            double distance = this.p0.distanceSquared(pnt.point);
             if (d > distance) {
                 d = distance;
                 p = pnt;

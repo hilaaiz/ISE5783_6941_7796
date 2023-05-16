@@ -51,12 +51,12 @@ public class Point {
     }
 
     /**
-     * return vector from myPoint to this
-     * @param myPoint
+     * return vector from point to this
+     * @param point
      * @return
      */
-    public Vector subtract(Point myPoint){
-        return new Vector(xyz.subtract((myPoint).xyz));
+    public Vector subtract(Point point){
+        return new Vector(xyz.subtract((point).xyz));
     }
 
     /**
