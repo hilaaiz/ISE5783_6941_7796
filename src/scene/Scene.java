@@ -64,7 +64,7 @@ public class Scene {
      * @param lights geometric bodies of the scene
      * @return The object itself
      */
-    public Scene setLights(List<LightSource> lights) {
+    public Scene setLights(List<LightSource> lights){
         this.lights = lights;
         return  this;
     }
