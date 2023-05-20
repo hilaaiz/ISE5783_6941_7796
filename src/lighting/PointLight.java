@@ -7,6 +7,9 @@ import primitives.Vector;
 
 /**
  * Realization of the light source point light
+ * Class that represents a light spot that has on origin in a specific point.
+ * Affected by all three attenuation coefficients.
+ * Extends the abstract class Light and implements the interface LightSource
  */
 public class PointLight extends Light implements LightSource{
 
@@ -14,8 +17,6 @@ public class PointLight extends Light implements LightSource{
      * The location of the lighting in the scene
      */
     protected Point position;
-
-
     private Double3 kC = new Double3(1);//Attenuation coefficient
     private Double3 kL = Double3.ZERO;//Attenuation coefficient
     private Double3 kQ = Double3.ZERO;//Attenuation coefficient
@@ -57,7 +58,7 @@ public class PointLight extends Light implements LightSource{
     /**
      * set function for kQ
      * Builder pattern
-     * @param kQ
+     * @param kQ [Double3]
      * @return
      */
     public PointLight setkQ(Double3 kQ) {
@@ -65,6 +66,23 @@ public class PointLight extends Light implements LightSource{
         return this;
     }
 
+    /**
+     * set function for kQ
+     * Builder pattern
+     * @param kQ [double]
+     * @return
+     */
+    public PointLight setkQ(double kQ) {
+        this.kQ =new Double3(kQ);
+        //setkQ(new Double3(kQ));
+        return this;
+    }
+
+    /**
+     * Setter for the kC field
+     * @param kC parameter for the kC field
+     * @return the object itself
+     */
     public PointLight setkC(double kC) {
         this.kC = new Double3(kC);
         return this;
@@ -78,17 +96,6 @@ public class PointLight extends Light implements LightSource{
      */
     public PointLight setkL(double kL) {
         this.kL =new Double3(kL);
-        return this;
-    }
-
-    /**
-     * set function for kQ
-     * Builder pattern
-     * @param kQ
-     * @return
-     */
-    public PointLight setkQ(double kQ) {
-        this.kQ =new Double3(kQ);
         return this;
     }
 //endregion

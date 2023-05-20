@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="stage6 part 1">
-      <change afterPath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lighting/Light.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lighting/LightSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lighting/PointLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lighting/SpotLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/primitives/Material.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unitTests/lighting/LightsTests.java" afterDir="false" />
+    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="stage 6 part 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/AmbientLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/AmbientLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lighting/LightSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/LightSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lighting/PointLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/PointLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Material.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
     </list>
@@ -28,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -91,13 +85,20 @@
       <recent name="geometries" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="lighting" />
       <recent name="renderer" />
       <recent name="geometries" />
       <recent name="primitives" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.LightsTests">
+    <configuration name="All in ISE5783_6941_7796" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_6941_7796" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LightsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
@@ -113,33 +114,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LightsTests.sphereDirectional" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PointTest.distance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lighting.*" />
+          <option name="PATTERN" value="primitives.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="lighting" />
-      <option name="MAIN_CLASS_NAME" value="lighting.LightsTests" />
-      <option name="METHOD_NAME" value="sphereDirectional" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LightsTests.trianglesSpot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_6941_7796" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lighting.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="lighting" />
-      <option name="MAIN_CLASS_NAME" value="lighting.LightsTests" />
-      <option name="METHOD_NAME" value="trianglesSpot" />
+      <option name="PACKAGE_NAME" value="primitives" />
+      <option name="MAIN_CLASS_NAME" value="primitives.PointTest" />
+      <option name="METHOD_NAME" value="distance" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -180,10 +165,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.LightsTests" />
-        <item itemvalue="JUnit.LightsTests.trianglesSpot" />
-        <item itemvalue="JUnit.LightsTests.sphereDirectional" />
+        <item itemvalue="JUnit.All in ISE5783_6941_7796" />
         <item itemvalue="JUnit.RenderTests.basicRenderTwoColorTest" />
         <item itemvalue="JUnit.RayTest.testFindClosestPoint" />
+        <item itemvalue="JUnit.PointTest.distance" />
       </list>
     </recent_temporary>
   </component>
@@ -197,6 +182,8 @@
       <updated>1677595046652</updated>
       <workItem from="1677595047795" duration="1835000" />
       <workItem from="1677598648915" duration="2908000" />
+      <workItem from="1684050953640" duration="2878000" />
+      <workItem from="1684615222461" duration="3272000" />
     </task>
     <task id="LOCAL‎-00001" summary="puse">
       <created>1678879646384</created>
@@ -317,7 +304,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1683048431607</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="stage 6 part 1">
+      <created>1683650465735</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683650465735</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,8 +343,8 @@
     <MESSAGE value="stage4" />
     <MESSAGE value="stage5" />
     <MESSAGE value="stage6 part 1" />
-    <MESSAGE value="stage6 part 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="stage6 part 2" />
+    <MESSAGE value="stage 6 part 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="stage 6 part 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
