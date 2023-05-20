@@ -54,7 +54,6 @@ public class Cylinder extends Tube {
     }
     //endregion
 
-
     @Override
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         List<GeoPoint> intersections = super.findGeoIntersectionsHelper(ray);

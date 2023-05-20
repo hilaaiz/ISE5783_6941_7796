@@ -39,7 +39,6 @@ public class RayTracerBasic extends RayTracerBase {
 
     /**
      * calculates the color of given point
-     *
      * @param intersection the point to calculate the color of it
      * @return the color that was calculated
      */
