@@ -20,6 +20,11 @@ public class Ray {
     private final Vector dir;
 
     /**
+     * We will move the ray head in the direction of the normal at a distance of delta
+     */
+    private static final double DELTA = 0.1;
+
+    /**
      * ctr for ray
      * @param p
      * @param v
@@ -27,6 +32,20 @@ public class Ray {
     public Ray(Point p, Vector v){
         p0=p;
         dir=v.normalize();
+    }
+
+    /**
+     * the head of the constructed ray will be moves by the direction vector multiplied by delta.
+     * the direction ov the move with or against the normal vector determined by the dot product of the direction and normal.
+     *
+     * @param head      the point that the ray suppose to start with.
+     * @param direction the direction of the ray.
+     * @param normal    the direction to move the ray with.
+     */
+    public Ray(Point head, Vector direction, Vector normal) {
+        double mult = direction.dotProduct(normal);
+        this.p0 = head.add(normal.scale(mult >= 0 ?  DELTA : -DELTA));
+        this.dir = direction;
     }
 
     /**
@@ -73,25 +92,25 @@ public class Ray {
      * @return Closest GeoPoint to the head of the ray
      */
     public GeoPoint findClosestGeoPoint(List<GeoPoint> points) {
-        //TODO:
+
         if (points == null) {
             return null;
         }
 
-        GeoPoint p = null;
-        double d = Double.POSITIVE_INFINITY;
+        GeoPoint geoPoint = null;
+        double minDistance = Double.POSITIVE_INFINITY;
         //Iterating through the list. Once we find smaller distance
         //than we have we replace the values.
         //This goes on until the end of the list.
-        for (GeoPoint pnt : points) {
-            double distance = this.p0.distanceSquared(pnt.point);
-            if (d > distance) {
-                d = distance;
-                p = pnt;
+        for (GeoPoint gp : points) {
+            double distance = this.p0.distanceSquared(gp.point);
+            if (minDistance > distance) {
+                minDistance = distance;
+                geoPoint = gp;
             }
         }
 
-        return p;
+        return geoPoint;
     }
 
 

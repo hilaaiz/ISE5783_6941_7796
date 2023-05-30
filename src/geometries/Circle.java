@@ -17,6 +17,12 @@ public class Circle extends Geometry {
     Point center;
     double radius;
 
+    /**
+     * ctr for Circle
+     * @param center of the circle
+     * @param radius of the circle
+     * @param normal to the plane containing the circle
+     */
     public Circle(Point center, double radius, Vector normal) {
         this.center = center;
         this.radius = radius;
@@ -29,14 +35,15 @@ public class Circle extends Geometry {
     }
 
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-        List<GeoPoint> planeIntersection = this.plane.findGeoIntersectionsHelper(ray);
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
+        List<GeoPoint> planeIntersection = this.plane.findGeoIntersectionsHelper(ray,maxDistance);
         if(planeIntersection == null)
             return null;
 
         Point p = planeIntersection.get(0).point;
 
-        if(alignZero(p.distanceSquared(this.center) - this.radius * this.radius) >= 0)
+        if(alignZero(p.distanceSquared(this.center) - this.radius * this.radius) >= 0 ||
+                alignZero(p.distanceSquared(ray.getP0()) - maxDistance * maxDistance) > 0)
             return null;
 
         return List.of(new GeoPoint(this,p));

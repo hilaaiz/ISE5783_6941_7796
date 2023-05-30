@@ -1,34 +1,30 @@
 package geometries;
 
-import primitives.Point;
 import primitives.Ray;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Geometries extends Intersectable {
 
-    private final List<Intersectable> intersectableGeometries;
+    private final List<Intersectable> intersectGeometries;
 
 
-    //region default constructor
+
     public Geometries() {
-        intersectableGeometries = new LinkedList<>();
+        intersectGeometries = new LinkedList<>();
     }
-    //endregion
 
 
-    //region constructor with Intersectable parameter
+    /**
+     * A constructor that accepts an unlimited number of intersections
+     * @param geometries
+     */
     public Geometries(Intersectable... geometries) {
-        this.intersectableGeometries = new LinkedList<>();
+        this.intersectGeometries = new LinkedList<>();
         this.add(geometries);
     }
-    //endregion
 
-
-    //region add function
 
     /**
      *  concatenate a collection of geometries to the existing collection
@@ -36,22 +32,17 @@ public class Geometries extends Intersectable {
      */
     public void add(Intersectable... geometries) {
         for (Intersectable geometry : geometries) {
-            intersectableGeometries.add(geometry);
+            intersectGeometries.add(geometry);
         }
     }
 
-    /**
-     * Finds all intersection GeoPoints of a ray and a geometric entity
-     *
-     * @param ray the ray that intersect with the geometric entity.
-     * @return list of intersection Geopoints.
-     */
+
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
         List<GeoPoint> Intersections = null;
 
-        for (Intersectable intersectable : this.intersectableGeometries) {
-            List<GeoPoint> currentIntersection = intersectable.findGeoIntersectionsHelper(ray);
+        for (Intersectable intersectable : this.intersectGeometries) {
+            List<GeoPoint> currentIntersection = intersectable.findGeoIntersectionsHelper(ray,maxDistance);
             if (currentIntersection != null) {// intersection was found
                 if (Intersections == null)
                     Intersections = new LinkedList<>();

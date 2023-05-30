@@ -35,10 +35,10 @@ public class Sphere extends RadialGeometry {
 
 
     @Override
-    public Vector getNormal(Point p) {
-        if(p.equals(center))
+    public Vector getNormal(Point point) {
+        if(point.equals(center))
             throw new IllegalArgumentException("point can not be equals to the center of the sphere");
-        Vector OP =p.subtract(center);
+        Vector OP = point.subtract(center);
         return OP.normalize();//לשנות לשורה אחת
     }
 
@@ -105,7 +105,7 @@ public class Sphere extends RadialGeometry {
      * @return list of intersection Geopoints.
      */
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
         Point p0 = ray.getP0();
         Vector v = ray.getDirection();
 
@@ -129,24 +129,27 @@ public class Sphere extends RadialGeometry {
         double t1 = alignZero(tm + th);
         double t2 = alignZero(tm - th);
 
-        if (t1 > 0 && t2 > 0)
+        if (t1 > 0 && alignZero(t1 - maxDistance) <= 0 &&
+                t2 > 0 && alignZero(t2 - maxDistance) <= 0)
         {
             Point p1 = ray.getPoint(t1);
             Point p2 = ray.getPoint(t2);
             return List.of(new GeoPoint(this,p1),new GeoPoint(this,p2));
         }
-        if (t1 > 0)
+        if (t1 > 0 && alignZero(t1 - maxDistance) <= 0)
         {
             Point p1 = ray.getPoint(t1);
             return List.of(new GeoPoint(this,p1));
         }
-        if (t2 > 0)
+        if (t2 > 0 && alignZero(t2 - maxDistance) <= 0)
         {
             Point p2 = ray.getPoint(t2);
             return List.of(new GeoPoint(this,p2));
         }
 
+
         return null;
     }
 
 }
+

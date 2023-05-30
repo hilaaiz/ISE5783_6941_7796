@@ -27,17 +27,29 @@ public abstract class Intersectable {
      * @param ray the ray that intersect with the geometric entity.
      * @return list of intersection Geopoints.
      */
-    public final List<GeoPoint> findGeoIntersections(Ray ray) {
-        return findGeoIntersectionsHelper(ray);
+    public List<GeoPoint> findGeoIntersections(Ray ray) {
+        return findGeoIntersections(ray, Double.POSITIVE_INFINITY);
     }
 
     /**
-     * Finds all intersection GeoPoints of a ray and a geometric entity
+     * Finds all intersection GeoPoints of a ray and a geometric entity within a given distance.
      *
-     * @param ray  the ray that intersect with the geometric entity.
+     * @param ray         the ray that intersect with the geometric entity.
+     * @param maxDistance the maximal distance to find intersections points.
      * @return list of intersection Geopoints.
      */
-    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray);
+    public List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
+        return findGeoIntersectionsHelper(ray, maxDistance);
+    }
+
+    /**
+     * Finds all intersection GeoPoints of a ray and a geometric entity within a given distance.
+     *
+     * @param ray         the ray that intersect with the geometric entity.
+     * @param maxDistance the maximal distance to find intersections points.
+     * @return list of intersection Geopoints.
+     */
+    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance);
 
     /**
      * nested PDS class for Geometry & Point

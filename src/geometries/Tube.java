@@ -41,18 +41,18 @@ public class Tube extends RadialGeometry{
 
 
     @Override
-    public Vector getNormal(Point P) {
+    public Vector getNormal(Point point) {
         Point P0= axisRay.getP0();
         Vector v= axisRay.getDirection();
 
-        Vector P0toP= P.subtract(P0);
+        Vector P0toP= point.subtract(P0);
         double t= alignZero(P0toP.dotProduct(v));
 
         if (isZero(t))
             return P0toP.normalize();
 
         Point O= P0.add(v.scale(t));
-        Vector OtoP= P.subtract(O); //TODO: CHECK LATER the direction
+        Vector OtoP= point.subtract(O); 
         return OtoP.normalize();
 
     }
@@ -66,14 +66,9 @@ public class Tube extends RadialGeometry{
     }
 
 
-    /**
-     * Finds all intersection GeoPoints of a ray and a geometric entity
-     *
-     * @param ray the ray that intersect with the geometric entity.
-     * @return list of intersection Geopoints.
-     */
+    // TODO: 28/05/2023 max distance 
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
         // solve for t : At^2 + Bt + C = 0
         // axisRay params: pa,va, ray params: p,vr
 
