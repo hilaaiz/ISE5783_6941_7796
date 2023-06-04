@@ -11,6 +11,7 @@ public abstract class Geometry extends Intersectable {
 
 
 
+
     /**
      * get the emission for geometry
      * @return
@@ -26,10 +27,10 @@ public abstract class Geometry extends Intersectable {
 
     /**
      * get the normal of the geometry
-     * @param p
+     * @param point
      * @return
      */
-    public abstract Vector getNormal(Point p);
+    public abstract Vector getNormal(Point point);
 
     public Material getMaterial() {
         return material;

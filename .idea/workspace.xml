@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="stage6">
+    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="stage 7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +85,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LightsTests">
+  <component name="RunManager" selected="JUnit.ShadowTests">
     <configuration name="LightsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
@@ -134,23 +133,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RayTest.testFindClosestPoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReflectionRefractionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="primitives.*" />
+          <option name="PATTERN" value="unittests.renderer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="primitives" />
-      <option name="MAIN_CLASS_NAME" value="primitives.RayTest" />
-      <option name="METHOD_NAME" value="testFindClosestPoint" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="unittests.renderer" />
+      <option name="MAIN_CLASS_NAME" value="unittests.renderer.ReflectionRefractionTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RenderTests.basicRenderTwoColorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShadowTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
@@ -159,20 +157,19 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.RenderTests" />
-      <option name="METHOD_NAME" value="basicRenderTwoColorTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="renderer.ShadowTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ShadowTests" />
+        <item itemvalue="JUnit.ReflectionRefractionTests" />
         <item itemvalue="JUnit.LightsTests" />
         <item itemvalue="JUnit.LightsTests.trianglesSpot" />
         <item itemvalue="JUnit.LightsTests.sphereDirectional" />
-        <item itemvalue="JUnit.RenderTests.basicRenderTwoColorTest" />
-        <item itemvalue="JUnit.RayTest.testFindClosestPoint" />
       </list>
     </recent_temporary>
   </component>
@@ -306,7 +303,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1683048431607</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="stage 7">
+      <created>1685463128275</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685463128275</updated>
+    </task>
+    <task id="LOCAL-00019" summary="stage 7">
+      <created>1685463140831</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1685463140831</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +351,8 @@
     <MESSAGE value="stage6 part 1" />
     <MESSAGE value="stage6 part 2" />
     <MESSAGE value="stage6" />
-    <option name="LAST_COMMIT_MESSAGE" value="stage6" />
+    <MESSAGE value="stage 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="stage 7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -357,7 +369,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/geometries/Tube.java</url>
-          <line>98</line>
+          <line>93</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>

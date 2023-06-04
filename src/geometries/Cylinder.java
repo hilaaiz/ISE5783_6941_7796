@@ -9,6 +9,10 @@ import java.util.List;
 
 import static primitives.Util.alignZero;
 
+/**
+ *A class that implements a cylinder, it is a finite pipe and therefore has a height.
+ * The class inherits from Tube.
+ */
 public class Cylinder extends Tube {
 
     /**
@@ -55,8 +59,8 @@ public class Cylinder extends Tube {
     //endregion
 
     @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-        List<GeoPoint> intersections = super.findGeoIntersectionsHelper(ray);
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
+        List<GeoPoint> intersections = super.findGeoIntersectionsHelper(ray,maxDistance);
 
         List<GeoPoint> pointList = new ArrayList<>();
 
@@ -70,12 +74,12 @@ public class Cylinder extends Tube {
 
         // intersect with base
         Circle base = new Circle(axisRay.getP0(), radius, axisRay.getDirection());
-        intersections = base.findGeoIntersectionsHelper(ray);
+        intersections = base.findGeoIntersectionsHelper(ray,maxDistance);
         if(intersections != null)
             pointList.add(new GeoPoint(this,intersections.get(0).point));
 
         base = new Circle(axisRay.getPoint(height), radius, axisRay.getDirection());
-        intersections = base.findGeoIntersectionsHelper(ray);
+        intersections = base.findGeoIntersectionsHelper(ray,maxDistance);
         if(intersections != null)
             pointList.add(new GeoPoint(this, intersections.get(0).point));
 

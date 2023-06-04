@@ -58,7 +58,7 @@ public class Plane extends Geometry {
     }
 
     @Override
-    public Vector getNormal(Point p) {
+    public Vector getNormal(Point point) {
         return null;
     }
 
@@ -79,7 +79,7 @@ public class Plane extends Geometry {
      * @return list of intersection Geopoints.
      */
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
         if(this.P0.equals(ray.getP0())) //ray starts at the reference point of the plane
             return null;
 
@@ -93,11 +93,8 @@ public class Plane extends Geometry {
             return null;
 
         double t = numerator / denominator;
-        if(t < 0 ) // ray starts after the plane
+        if(t < 0 || alignZero(t - maxDistance) > 0 ) // ray starts after the plane
             return null;
-
-        //List<Point> intersections = new LinkedList<>();
-        //intersections.add(ray.getPoint(t));
 
         return List.of(new GeoPoint(this, ray.getPoint(t))); //צורת בניה שביקשו במקום מה שלמעלה
     }

@@ -20,7 +20,7 @@ public class SpotLight extends PointLight{
      * @param intensity
      * @param position
      */
-    protected SpotLight(Color intensity, Point position,Vector direction) {
+    public SpotLight(Color intensity, Point position,Vector direction) {
         super(intensity, position);
         this.direction=direction.normalize();
     }
@@ -33,19 +33,19 @@ public class SpotLight extends PointLight{
      * Position (PL)
      * Direction dir (Vector) - normalized
      * Attenuation factors
-     * @param p - point on the geometry for which the color is calculated
+     * @param point - point on the geometry for which the color is calculated
      * @return
      */
     @Override
-    public Color getIntensity(Point p) {
-        double lDir = alignZero(this.direction.dotProduct(super.getL(p)));
+    public Color getIntensity(Point point) {
+        double lDir = alignZero(this.direction.dotProduct(super.getL(point)));
         if (lDir <= 0)
             return Color.BLACK;
-        return super.getIntensity(p).scale(lDir);
+        return super.getIntensity(point).scale(lDir);
     }
 
     @Override
-    public Vector getL(Point p) {
-        return super.getL(p);
+    public Vector getL(Point point) {
+        return super.getL(point);
     }
 }

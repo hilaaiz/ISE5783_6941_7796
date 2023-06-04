@@ -6,7 +6,7 @@ import primitives.Double3;
 
 /**
  * Class that represents an ambient light.
- * Ambient light is an omni-directional, fixed intensity and fixed color type of light.
+ * Ambient light is an omnidirectional, fixed intensity and fixed color type of light.
  */
 public class AmbientLight extends Light{
 

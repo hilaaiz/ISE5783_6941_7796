@@ -89,8 +89,8 @@ public class Polygon extends Geometry {
     * @return list of intersection Geopoints.
     */
    @Override
-   protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-      List<GeoPoint> intersections = plane.findGeoIntersectionsHelper(ray);
+   protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+      List<GeoPoint> intersections = plane.findGeoIntersectionsHelper(ray,maxDistance);// TODO: 24/05/2023 להוסיף maxDistance
       if (isNotExistIntersections(intersections))
          return null;
       Point intersectionPoint = intersections.get(0).point;

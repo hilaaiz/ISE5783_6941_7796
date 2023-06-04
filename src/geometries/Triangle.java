@@ -25,10 +25,10 @@ public class Triangle extends Polygon{
 
     /**
      * getnormal override function
-     * @param p
+     * @param point
      * @return
      */
-    public Vector getNormal(Point p){ return super.getNormal(p);}
+    public Vector getNormal(Point point){ return super.getNormal(point);}
 
 
     @Override
@@ -41,9 +41,9 @@ public class Triangle extends Polygon{
 
 
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
 
-        List<GeoPoint> intersectionsOnPlane = this.plane.findGeoIntersectionsHelper(ray);
+        List<GeoPoint> intersectionsOnPlane = this.plane.findGeoIntersectionsHelper(ray,maxDistance);
         if(intersectionsOnPlane == null) //the ray doesn't intersect the plane
             return null;
 

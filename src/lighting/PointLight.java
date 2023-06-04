@@ -106,20 +106,21 @@ public class PointLight extends Light implements LightSource{
      * • Intensity (I0)
      * • Position (PL )
      * • Factors (kc ,kl , kq) for attenuation with distance (d)
-     * @param p - point on the geometry for which the color is calculated
+     * @param point - point on the geometry for which the color is calculated
      * @return
      */
     @Override
-    public Color getIntensity(Point p) {
-        double d = p.distance(this.position);
+    public Color getIntensity(Point point) {
+        double d = point.distance(this.position);
         return this.getIntensity().reduce(kC.add(kL.scale(d)).add(kQ.scale(d * d)));
     }
 
     @Override
-    public Vector getL(Point p) {
-        return p.subtract(this.position).normalize();
+    public Vector getL(Point point) {
+        return point.subtract(this.position).normalize();
     }
 
+    @Override
     public double getDistance(Point point) {
         return point.distance(position);
     }
