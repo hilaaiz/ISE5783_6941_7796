@@ -17,6 +17,9 @@ public class Material
     public Double3 kD=Double3.ZERO;
     public Double3 kS=Double3.ZERO;
     public int Shininess=0;
+    public double glossiness = 0;
+    public double diffuseness = 0;
+
 
     /**
      * Setter for the kD field
