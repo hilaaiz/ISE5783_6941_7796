@@ -25,8 +25,6 @@ public class ReflectionRefractionTests {
    /** Produce a picture of a sphere lighted by a spot light */
    @Test
    public void twoSpheres() {
-      Camera camera = new Camera(new Point(0, 0, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
-         .setVPSize(150, 150).setVPDistance(1000);
 
       scene.geometries.add( //
                            new Sphere(50d,new Point(0, 0, -50)).setEmission(new Color(BLUE)) //
@@ -36,6 +34,9 @@ public class ReflectionRefractionTests {
       scene.lights.add( //
                        new SpotLight(new Color(1000, 600, 0), new Point(-100, -100, 500), new Vector(-1, -1, -2)) //
                                .setkL(0.0004).setkQ(0.0000006));
+
+      Camera camera = new Camera(new Point(0, 0, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
+              .setVPSize(150, 150).setVPDistance(1000);
 
       camera.setImageWriter(new ImageWriter("refractionTwoSpheres", 500, 500)) //
          .setRayTracer(new RayTracerBasic(scene)) //

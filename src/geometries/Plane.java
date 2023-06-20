@@ -59,7 +59,7 @@ public class Plane extends Geometry {
 
     @Override
     public Vector getNormal(Point point) {
-        return null;
+        return normal;
     }
 
     @Override

@@ -4,6 +4,8 @@ import primitives.Color;
 import primitives.Ray;
 import scene.Scene;
 
+import java.util.List;
+
 /**
  * an abstract class to be the base to RayTracerBasic
  */
@@ -26,5 +28,11 @@ public abstract class RayTracerBase {
      * @return the color at the intersection point
      */
     public abstract Color traceRay(Ray ray);
+
+    /**
+     * function that traces rays and return average color of pixel
+     * @param rays rays to trace
+     */
+    public abstract Color traceRays(List<Ray> rays);
 
 }
