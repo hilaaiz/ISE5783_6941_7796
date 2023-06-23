@@ -1,6 +1,6 @@
 package geometries;
 
-import static primitives.Util.isZero;
+import static primitives.Util.*;
 
 import java.util.List;
 
@@ -20,41 +20,41 @@ public class Polygon extends Geometry {
 
    /** Polygon constructor based on vertices list. The list must be ordered by edge
     * path. The polygon must be convex.
-    * @param  vertices                 list of vertices according to their order by
-    *                                  edge path
+    * @param vertices list of vertices according to their order by
+    * edge path
     * @throws IllegalArgumentException in any case of illegal combination of
-    *                                  vertices:
-    *                                  <ul>
-    *                                  <li>Less than 3 vertices</li>
-    *                                  <li>Consequent vertices are in the same
-    *                                  point
-    *                                  <li>The vertices are not in the same
-    *                                  plane</li>
-    *                                  <li>The order of vertices is not according
-    *                                  to edge path</li>
-    *                                  <li>Three consequent vertices lay in the
-    *                                  same line (180&#176; angle between two
-    *                                  consequent edges)
-    *                                  <li>The polygon is concave (not convex)</li>
-    *                                  </ul>
+    * vertices:
+    * <ul>
+    * <li>Less than 3 vertices</li>
+    * <li>Consequent vertices are in the same
+    * point
+    * <li>The vertices are not in the same
+    * plane</li>
+    * <li>The order of vertices is not according
+    * to edge path</li>
+    * <li>Three consequent vertices lay in the
+    * same line (180&#176; angle between two
+    * consequent edges)
+    * <li>The polygon is concave (not convex)</li>
+    * </ul>
     */
    public Polygon(Point... vertices) {
       if (vertices.length < 3)
          throw new IllegalArgumentException("A polygon can't have less than 3 vertices");
       this.vertices = List.of(vertices);
-      size          = vertices.length;
+      size = vertices.length;
 
       // Generate the plane according to the first three vertices and associate the
       // polygon with this plane.
       // The plane holds the invariant normal (orthogonal unit) vector to the polygon
-      plane         = new Plane(vertices[0], vertices[1], vertices[2]);
+      plane = new Plane(vertices[0], vertices[1], vertices[2]);
       if (size == 3) return; // no need for more tests for a Triangle
 
-      Vector  n        = plane.getNormal();
+      Vector n = plane.getNormal();
       // Subtracting any subsequent points will throw an IllegalArgumentException
       // because of Zero Vector if they are in the same point
-      Vector  edge1    = vertices[vertices.length - 1].subtract(vertices[vertices.length - 2]);
-      Vector  edge2    = vertices[0].subtract(vertices[vertices.length - 1]);
+      Vector edge1 = vertices[vertices.length - 1].subtract(vertices[vertices.length - 2]);
+      Vector edge2 = vertices[0].subtract(vertices[vertices.length - 1]);
 
       // Cross Product of any subsequent edges will throw an IllegalArgumentException
       // because of Zero Vector if they connect three vertices that lay in the same
@@ -79,54 +79,52 @@ public class Polygon extends Geometry {
    }
 
    @Override
-   public Vector getNormal(Point point) { return plane.getNormal(); }
+   public Vector getNormal(Point point) { return plane.getNormal(point); }
 
-
-   /**
-    * Finds all intersection GeoPoints of a ray and a geometric entity
-    *
-    * @param ray the ray that intersect with the geometric entity.
-    * @return list of intersection Geopoints.
-    */
    @Override
-   protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
-      List<GeoPoint> intersections = plane.findGeoIntersectionsHelper(ray,maxDistance);// TODO: 24/05/2023 להוסיף maxDistance
-      if (isNotExistIntersections(intersections))
+   public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+
+      // Find intersections between the ray and the polygon's plane
+      List<GeoPoint> planeIntersections = plane.findGeoIntersections(ray, maxDistance);
+
+      // Return null if there are no plane intersections
+      if (planeIntersections == null) {
          return null;
-      Point intersectionPoint = intersections.get(0).point;
+      }
 
-      try {
+      // Compute necessary vectors and points for intersection calculation
+      Point P0 = ray.getP0();
+      Vector dir = ray.getDirection();
+      Point P1 = vertices.get(1);
+      Point P2 = vertices.get(0);
+      Vector v1 = P1.subtract(P0);
+      Vector v2 = P2.subtract(P0);
 
-         Vector edgeVector = this.vertices.get(0).subtract(this.vertices.get(this.size - 1)).normalize();
-         Vector vecToPoint = intersectionPoint.subtract(this.vertices.get(size - 1)).normalize();
-         Vector normalVector = edgeVector.crossProduct(vecToPoint).normalize();	// the first vector to compare to the others
+      // Check if the ray intersects the polygon using sign calculation
+      double sign = alignZero(dir.dotProduct(v1.crossProduct(v2)));
+      if (isZero(sign)) {
+         return null;
+      }
 
-         for (int i = 0; i < this.size - 1; i++) {
-            edgeVector = this.vertices.get(i + 1).subtract(this.vertices.get(i)).normalize();
-            vecToPoint = intersectionPoint.subtract(this.vertices.get(i)).normalize();
+      boolean positive = sign > 0;
 
-            // the point is on the edge
-            if( edgeVector.equals(vecToPoint) || edgeVector.equals(edgeVector.scale(-1)))
-               return null;
+      // Iterate through all vertices of the polygon to check if they lie on the same side of the ray
+      for (int i = vertices.size() - 1; i > 0; --i) {
+         v1 = v2;
+         v2 = vertices.get(i).subtract(P0);
+         sign = alignZero(dir.dotProduct(v1.crossProduct(v2)));
 
-            Vector crossVector = edgeVector.crossProduct(vecToPoint).normalize();
-
-            if ( normalVector.dotProduct(crossVector) < 0 /*!normalVector.equals(crossVector)*/)	// at least 1 vec is not the same, then the point is outside the polygon
-               return null;
+         // Return null if the vertex lies on the plane of the polygon
+         if (isZero(sign)) {
+            return null;
          }
-         // intersections.clear(); // the point is inside the polygon
-         //intersections.add(intersectionPoint);
-         return intersections;
-      }
-      catch (IllegalArgumentException e){
-         // an exception was thrown because the zero vector was constructed because
-         // the point of intersection was on a vertex or on an edge
-         return null;
-      }
-   }
 
-   private static boolean isNotExistIntersections(List<GeoPoint> intersections) {
-      return intersections == null;
-   }
+         // Return null if the vertex lies on the opposite side of the ray
+         if (positive != (sign > 0)) {
+            return null;
+         }
+      }
 
+      return List.of(new GeoPoint(this, planeIntersections.get(0).point));
+   }
 }
