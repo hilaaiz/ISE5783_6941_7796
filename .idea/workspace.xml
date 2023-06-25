@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="starting gums picture">
+    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="anti Aliasing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/Photos/gums.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/Photos/gums.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +65,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hanim/Desktop/פרוייקטים/ISE5782_7657_4253-master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hanim/Desktop/מיניפ הנדסת תוכנה/ISE5783_6941_7796&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -87,8 +88,8 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.gums.gumsP (1)">
-    <configuration name="ShadowTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.gums.gumsP">
+    <configuration name="RenderTests.basicRenderMultiColorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
@@ -97,8 +98,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.ShadowTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="renderer.RenderTests" />
+      <option name="METHOD_NAME" value="basicRenderMultiColorTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,18 +125,18 @@
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sampling.*" />
+          <option name="PATTERN" value="Photos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="sampling" />
-      <option name="MAIN_CLASS_NAME" value="sampling.gums" />
+      <option name="MAIN_CLASS_NAME" value="Photos.gums" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gums.gumsP (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="gums.antiAliasingPicture" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
@@ -142,9 +144,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Photos" />
+      <option name="PACKAGE_NAME" value="sampling" />
       <option name="MAIN_CLASS_NAME" value="Photos.gums" />
-      <option name="METHOD_NAME" value="gumsP" />
+      <option name="METHOD_NAME" value="antiAliasingPicture" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -154,12 +156,12 @@
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sampling.*" />
+          <option name="PATTERN" value="Photos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="sampling" />
-      <option name="MAIN_CLASS_NAME" value="sampling.gums" />
+      <option name="MAIN_CLASS_NAME" value="Photos.gums" />
       <option name="METHOD_NAME" value="gumsP" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -168,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.gums.gumsP (1)" />
-        <item itemvalue="JUnit.gums" />
-        <item itemvalue="JUnit.ShadowTests" />
         <item itemvalue="JUnit.gums.gumsP" />
         <item itemvalue="JUnit.ShadowTests.trianglesSphere" />
+        <item itemvalue="JUnit.gums" />
+        <item itemvalue="JUnit.RenderTests.basicRenderMultiColorTest" />
+        <item itemvalue="JUnit.gums.antiAliasingPicture" />
       </list>
     </recent_temporary>
   </component>
@@ -186,8 +188,6 @@
       <updated>1677595046652</updated>
       <workItem from="1677595047795" duration="1835000" />
       <workItem from="1677598648915" duration="2908000" />
-      <workItem from="1687504343924" duration="16285000" />
-      <workItem from="1687644089955" duration="3383000" />
     </task>
     <task id="LOCAL‎-00001" summary="puse">
       <created>1678879646384</created>
@@ -322,12 +322,12 @@
       <option name="project" value="LOCAL" />
       <updated>1685463140831</updated>
     </task>
-    <task id="LOCAL-00020" summary="starting gums picture">
-      <created>1687507310906</created>
+    <task id="LOCAL‎-00020" summary="anti Aliasing">
+      <created>1687260542022</created>
       <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1687507310906</updated>
+      <option name="presentableId" value="LOCAL‎-00020" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1687260542023</updated>
     </task>
     <option name="localTasksCounter" value="21" />
     <servers />
@@ -364,8 +364,8 @@
     <MESSAGE value="stage6 part 2" />
     <MESSAGE value="stage6" />
     <MESSAGE value="stage 7" />
-    <MESSAGE value="starting gums picture" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting gums picture" />
+    <MESSAGE value="anti Aliasing" />
+    <option name="LAST_COMMIT_MESSAGE" value="anti Aliasing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -384,6 +384,21 @@
           <url>file://$PROJECT_DIR$/src/geometries/Tube.java</url>
           <line>93</line>
           <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/unitTests/Photos/gums.java</url>
+          <line>279</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/renderer/RayTracerBasic.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/renderer/RayTracerBasic.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -266,7 +266,7 @@ public class Camera {
     }
     //endregion
 
-    //region construct rays
+    //region constructRays
     /**
      * function that returns the rays from the camera to the point
      *
@@ -313,8 +313,8 @@ public class Camera {
         int nY = imageWriter.getNy();
         for (int i = 0; i < nX; i++)
             for (int j = 0; j < nY; j++) {
+
                 //get the ray through the pixel
-                //Ray ray = this.constructRay(nX, nY, j, i);
                 imageWriter.writePixel(j, i, this.castRay(nX, nY, j, i));
             }
 
@@ -388,6 +388,7 @@ public class Camera {
     }
     //endregion
 
+    //region adaptive
     private Color calcPointColor(Point p) {
         return rayTracer.traceRay(new Ray(position, p.subtract(position)));
     }
@@ -469,35 +470,7 @@ public class Camera {
         return pointColorTable.get(point);
     }
 
-//    /**
-//     * Calculating the color of each pixel,
-//     * the color of the pixel will be an average of the colors of several rays.
-//     * @param numRays
-//     * @return
-//     * @throws MissingResourceException
-//     */
-//    public Camera renderImage(int numRays) throws MissingResourceException {
-//        if (imageWriter == null || rayTracer == null || width == 0 || height == 0 || distance == 0)
-//            throw new MissingResourceException("Camera is missing some fields", "Camera", "field");
-//
-//        RayBeam rayBeam;
-//
-//        //move over the coordinates of the grid
-//        int nX = imageWriter.getNx();
-//        int nY = imageWriter.getNy();
-//
-//        for (int i = 0; i < nX; i++)
-//            for (int j = 0; j < nY; j++) {
-//
-//                 rayBeam = new RayBeam(constructRay(nX, nY, j, i), this.vUp, this.vRight)
-//                        .setSize(this.width / nY, this.height / nX)
-//                        .setAmount(numRays);
-//
-//                imageWriter.writePixel(j, i, rayTracer.traceRays(rayBeam.constructRayBeam()));
-//            }
-//
-//        return this;
-//
-//    }
+    //endregion
+
 
 }

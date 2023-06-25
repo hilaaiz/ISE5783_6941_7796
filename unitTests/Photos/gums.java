@@ -3,6 +3,7 @@ package Photos;
 import geometries.*;
 import lighting.AmbientLight;
 import lighting.PointLight;
+import lighting.SpotLight;
 import org.junit.jupiter.api.Test;
 import primitives.*;
 import renderer.Camera;
@@ -45,7 +46,7 @@ public class gums {
 
         //region lights
         PointLight pointLight = new PointLight(new Color(WHITE),
-                new Point(800, 900, 1100));
+                new Point(800, 900, 2000));
 
         scene.lights.add(pointLight);
         //endregion
@@ -82,10 +83,10 @@ public class gums {
         //region poligons
         scene.geometries.add(
 
-              new Polygon(v1,v2,v3,v4).setEmission(new Color(BLACK))
-                      .setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
+                new Polygon(v1,v2,v3,v4).setEmission(new Color(BLACK))
+                        .setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
 //                         new Color(BLACK)).setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
-               new Polygon(v1,v2,b1,b2).setEmission(florColor)
+                new Polygon(v1,v2,b1,b2).setEmission(florColor)
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1)),
                 new Polygon(v2,v3,c1,b1).setEmission(florColor)
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1)),
@@ -115,7 +116,7 @@ public class gums {
                 .setMaterial( new Material().setkD(0.1).setkS( 0.2).setShininess(1).setkT(1.0));
 
         //המכסה של הצנצנת
-        Cylinder cylinder2= (Cylinder) new Cylinder(radius+10, new Ray(new Point(500,600,startHigh+sumLoop1*hige1),new Vector(0,0,1)),30)
+        Cylinder cylinder2= (Cylinder) new Cylinder(radius+10, new Ray(new Point(500,600,startHigh+sumLoop1*hige1),new Vector(0,0,1)),50)
                 .setEmission(new Color(188, 48, 152))
                 .setMaterial( new Material().setkD(0.8).setkS( 0.1).setShininess(50).setkT(0.5));
 
@@ -127,8 +128,8 @@ public class gums {
             radius-=0.3;
             cylinder= (Cylinder) new Cylinder
                     (radius,new Ray(new Point(500,600,startHigh+(i*hige1)),new Vector(0,0,1)),hige1)
-                    .setEmission(new Color(5, 5, 5))
-                    .setMaterial( new Material().setkD(0.4).setkS(0.6).setShininess(50).setkT(1.0).setkR(0.0));
+                    .setEmission(new Color(0,0,0))
+                    .setMaterial( new Material().setkD(0.2).setkS(0.8).setShininess(100).setkT(0.9));
             scene.geometries.add(cylinder);
         }
         //endregion
@@ -260,23 +261,23 @@ public class gums {
                 makingStandartGums(460D,749.2820323,370D,yellowGum), //ϴ= 2π/3  |3.1.4
                 makingStandartGums(420D,520D,370D,redGum), //ϴ= π |4.-1.4
                 makingStandartGums(460D,450.7179677,370D,blue1Gum), //ϴ= 4π/3 |5.-1.4
-               // makingStandartGums(540D,450.7179677,370D,yellow2Gum),//ϴ= 5π/3 |6.-1.4
-               // makingStandartGums(610D,510D,370D,pinkGum),//ϴ=0 |0001.-1.4 *
+                // makingStandartGums(540D,450.7179677,370D,yellow2Gum),//ϴ= 5π/3 |6.-1.4
+                // makingStandartGums(610D,510D,370D,pinkGum),//ϴ=0 |0001.-1.4 *
                 makingStandartGums(630D,640D,370D,perpleGum),//ϴ=0 |0.0.4 *
-               // makingStandartGums(645D,565D,370D,greenGum),//ϴ=0 |0.1.4 *
+                // makingStandartGums(645D,565D,370D,greenGum),//ϴ=0 |0.1.4 *
                 makingStandartGums(390D,690D,370D,redGum), //ϴ= π |0004.1.4 *
                 makingStandartGums(370D,570D,370D,perpleGum), //ϴ= π |0004.2.4 *
                 makingStandartGums(345D,630D,370D,blue1Gum)//ϴ= π  |0004.3.4 *
                 //endregion
 
-               // makingStandartGums(580D,720D,440D,yellow2Gum)//ϴ= π/3 |2.1.4
+                // makingStandartGums(580D,720D,440D,yellow2Gum)//ϴ= π/3 |2.1.4
 
         );
         //endregion
 
         //region buildPhoto
-        camera.setAntiAliasingFactor(9);
-        camera.setImageWriter(new ImageWriter("antiAliasingPicture", 600, 600)) //
+        camera.setAntiAliasingFactor(2);
+        camera.setImageWriter(new ImageWriter("antiAliasingPicture2", 600, 600)) //
                 .renderImage() //
                 .writeToImage();
         //endregion
