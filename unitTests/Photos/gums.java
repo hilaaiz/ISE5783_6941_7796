@@ -2,7 +2,9 @@ package Photos;
 
 import geometries.*;
 import lighting.AmbientLight;
+import lighting.DirectionalLight;
 import lighting.PointLight;
+import lighting.SpotLight;
 import org.junit.jupiter.api.Test;
 import primitives.*;
 import renderer.Camera;
@@ -43,13 +45,6 @@ public class gums {
         Scene scene1 = scene.setBackground(new Color(0, 0, 0));
         //endregion
 
-        //region lights
-        PointLight pointLight = new PointLight(new Color(WHITE),
-                new Point(800, 900, 1100));
-
-        scene.lights.add(pointLight);
-        //endregion
-
         //region points
         //points to square
         Point v1=new Point(0,100,0);
@@ -68,6 +63,7 @@ public class gums {
 
         //region colors
         Color florColor=new Color(108, 174, 255);
+        Color Flor = new Color(88, 154, 235);
         Color pinkGum=new Color(249, 136, 201);
         Color pink2Gum=new Color(227, 96, 202);
         Color yellowGum=new Color(239, 223, 112);
@@ -79,17 +75,33 @@ public class gums {
         Color greenGum=new Color(27, 179, 122);
         //endregion
 
+        //region lights
+        PointLight pointLight = new PointLight(new Color(gray),
+                new Point(800, 900, 1100));
+
+        SpotLight Spot = new SpotLight(new Color(gray),
+                c2,
+                new Vector(-1,1,-1));
+
+        DirectionalLight Spoty = new DirectionalLight(new Color(gray),new Vector(1,1,0));//new Point(1000D,600D,0D)
+        //DirectionalLight Direction = new DirectionalLight(new Color(gray),new Vector(-1,1,0));
+        scene.lights.add(pointLight);
+        scene.lights.add(Spot);
+        scene.lights.add(Spoty);
+        //scene.lights.add(Direction);
+        //endregion
+
         //region poligons
         scene.geometries.add(
 
               new Polygon(v1,v2,v3,v4).setEmission(new Color(BLACK))
                       .setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
 //                         new Color(BLACK)).setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
-               new Polygon(v1,v2,b1,b2).setEmission(florColor)
+               new Polygon(v1,v2,b1,b2).setEmission(Flor)
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1)),
-                new Polygon(v2,v3,c1,b1).setEmission(florColor)
+                new Polygon(v2,v3,c1,b1).setEmission(Flor)
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1)),
-                new Polygon(v1,v4,c2,b2).setEmission(florColor)
+                new Polygon(v1,v4,c2,b2).setEmission(Flor)
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1))
         );
         //endregion
@@ -115,7 +127,7 @@ public class gums {
                 .setMaterial( new Material().setkD(0.1).setkS( 0.2).setShininess(1).setkT(1.0));
 
         //המכסה של הצנצנת
-        Cylinder cylinder2= (Cylinder) new Cylinder(radius+10, new Ray(new Point(500,600,startHigh+sumLoop1*hige1),new Vector(0,0,1)),30)
+        Cylinder cylinder2= (Cylinder) new Cylinder(radius+10, new Ray(new Point(500,600,startHigh+sumLoop1*hige1),new Vector(0,0,1)),50)
                 .setEmission(new Color(188, 48, 152))
                 .setMaterial( new Material().setkD(0.8).setkS( 0.1).setShininess(50).setkT(0.5));
 
@@ -127,8 +139,8 @@ public class gums {
             radius-=0.3;
             cylinder= (Cylinder) new Cylinder
                     (radius,new Ray(new Point(500,600,startHigh+(i*hige1)),new Vector(0,0,1)),hige1)
-                    .setEmission(new Color(5, 5, 5))
-                    .setMaterial( new Material().setkD(0.4).setkS(0.6).setShininess(50).setkT(1.0).setkR(0.0));
+                    .setEmission(new Color(0,0,0))
+                    .setMaterial( new Material().setkD(0.2).setkS(0.8).setShininess(100).setkT(0.9));
             scene.geometries.add(cylinder);
         }
         //endregion
@@ -275,8 +287,15 @@ public class gums {
         //endregion
 
         //region buildPhoto
+        //camera.setAntiAliasingFactor(9);
+        camera.setImageWriter(new ImageWriter("gumsPicture", 600, 600)) //
+                .renderImage() //
+                .writeToImage();
+        //endregion
+
+        //region buildPhoto
         camera.setAntiAliasingFactor(9);
-        camera.setImageWriter(new ImageWriter("antiAliasingPicture", 600, 600)) //
+        camera.setImageWriter(new ImageWriter("gumsAntiAliasingPicture", 600, 600)) //
                 .renderImage() //
                 .writeToImage();
         //endregion
