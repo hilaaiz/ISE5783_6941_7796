@@ -45,13 +45,6 @@ public class gums {
         Scene scene1 = scene.setBackground(new Color(0, 0, 0));
         //endregion
 
-        //region lights
-        PointLight pointLight = new PointLight(new Color(WHITE),
-                new Point(800, 900, 1100));
-
-        scene.lights.add(pointLight);
-        //endregion
-
         //region points
         //points to square
         Point v1=new Point(0,100,0);
@@ -69,7 +62,10 @@ public class gums {
         //endregion
 
         //region colors
-        Color florColor=new Color(108, 174, 255);
+        Color coverColor=new Color(158, 18, 122);
+        Color black=new Color(0, 0, 0);
+       // Color florColor=new Color(108, 174, 255);
+        Color Flor = new Color(88, 154, 235);
         Color pinkGum=new Color(249, 136, 201);
         Color pink2Gum=new Color(227, 96, 202);
         Color yellowGum=new Color(239, 223, 112);
@@ -81,44 +77,61 @@ public class gums {
         Color greenGum=new Color(27, 179, 122);
         //endregion
 
+        //region lights
+        PointLight pointLight = new PointLight(new Color(gray),
+                new Point(800, 900, 1100));
+
+        SpotLight Spot = new SpotLight(new Color(gray),
+                c2,
+                new Vector(-1,1,-1));
+
+        DirectionalLight Spoty = new DirectionalLight(new Color(gray),new Vector(1,1,0));//new Point(1000D,600D,0D)
+        //DirectionalLight Direction = new DirectionalLight(new Color(gray),new Vector(-1,1,0));
+        scene.lights.add(pointLight);
+        scene.lights.add(Spot);
+        scene.lights.add(Spoty);
+        //scene.lights.add(Direction);
+        //endregion
+
         //region poligons
         scene.geometries.add(
 
-              new Polygon(v1,v2,v3,v4).setEmission(new Color(BLACK))
-                      .setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
+                new Polygon(v1,v2,v3,v4).setEmission(new Color(BLACK))
+                        .setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
 //                         new Color(BLACK)).setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
-               new Polygon(v1,v2,b1,b2).setEmission(florColor)
+                new Polygon(v1,v2,b1,b2).setEmission(Flor)
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1)),
-                new Polygon(v2,v3,c1,b1).setEmission(florColor)
+                new Polygon(v2,v3,c1,b1).setEmission(Flor)
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1)),
-                new Polygon(v1,v4,c2,b2).setEmission(florColor)
+                new Polygon(v1,v4,c2,b2).setEmission(Flor)
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1))
         );
         //endregion
 
+        //region cylinders
         //region parameters for cylinders
         int radius=200;
         int highTemp=300;
         int sumLoop1=15;
-        int sumLoop2=15;
+       // int sumLoop2=15;
         int hige1=5;
-        int hige2=1;
+       // int hige2=1;
         int startHigh=400;
         //endregion
 
-        //region cylinders
-        //צנצנת ראשית
+        //central jar
         Cylinder cylinder= (Cylinder) new Cylinder(radius, new Ray(new Point(500,600,0),new Vector(0,0,1)),startHigh)
-                .setEmission(new Color(0,0,0))
+                .setEmission(black)
                 .setMaterial( new Material().setkD(0.2).setkS(0.8).setShininess(100).setkT(0.9));
-        //תחתית הצנצנת
+
+        //the bottom of the jar
         Cylinder cylinder1= (Cylinder) new Cylinder(radius, new Ray(new Point(500,600,0),new Vector(0,0,1)),10)
-                .setEmission(new Color(0, 0, 0))
+                .setEmission(black)
                 .setMaterial( new Material().setkD(0.1).setkS( 0.2).setShininess(1).setkT(1.0));
 
-        //המכסה של הצנצנת
-        Cylinder cylinder2= (Cylinder) new Cylinder(radius+10, new Ray(new Point(500,600,startHigh+sumLoop1*hige1),new Vector(0,0,1)),30)
-                .setEmission(new Color(188, 48, 152))
+        //the lid of the jar
+        Cylinder cylinder2= (Cylinder) new Cylinder(radius, new Ray(new Point(500,600,startHigh+sumLoop1*hige1),new Vector(0,0,1)),50)
+                .setEmission(coverColor)
                 .setMaterial( new Material().setkD(0.8).setkS( 0.1).setShininess(50).setkT(0.5));
 
         scene.geometries.add(
@@ -129,8 +142,8 @@ public class gums {
             radius-=0.3;
             cylinder= (Cylinder) new Cylinder
                     (radius,new Ray(new Point(500,600,startHigh+(i*hige1)),new Vector(0,0,1)),hige1)
-                    .setEmission(new Color(5, 5, 5))
-                    .setMaterial( new Material().setkD(0.4).setkS(0.6).setShininess(50).setkT(1.0).setkR(0.0));
+                    .setEmission(new Color(0,0,0))
+                    .setMaterial( new Material().setkD(0.2).setkS(0.8).setShininess(100).setkT(0.9));
             scene.geometries.add(cylinder);
         }
         //endregion
@@ -262,23 +275,30 @@ public class gums {
                 makingStandartGums(460D,749.2820323,370D,yellowGum), //ϴ= 2π/3  |3.1.4
                 makingStandartGums(420D,520D,370D,redGum), //ϴ= π |4.-1.4
                 makingStandartGums(460D,450.7179677,370D,blue1Gum), //ϴ= 4π/3 |5.-1.4
-               // makingStandartGums(540D,450.7179677,370D,yellow2Gum),//ϴ= 5π/3 |6.-1.4
-               // makingStandartGums(610D,510D,370D,pinkGum),//ϴ=0 |0001.-1.4 *
+                // makingStandartGums(540D,450.7179677,370D,yellow2Gum),//ϴ= 5π/3 |6.-1.4
+                // makingStandartGums(610D,510D,370D,pinkGum),//ϴ=0 |0001.-1.4 *
                 makingStandartGums(630D,640D,370D,perpleGum),//ϴ=0 |0.0.4 *
-               // makingStandartGums(645D,565D,370D,greenGum),//ϴ=0 |0.1.4 *
+                // makingStandartGums(645D,565D,370D,greenGum),//ϴ=0 |0.1.4 *
                 makingStandartGums(390D,690D,370D,redGum), //ϴ= π |0004.1.4 *
                 makingStandartGums(370D,570D,370D,perpleGum), //ϴ= π |0004.2.4 *
                 makingStandartGums(345D,630D,370D,blue1Gum)//ϴ= π  |0004.3.4 *
                 //endregion
 
-               // makingStandartGums(580D,720D,440D,yellow2Gum)//ϴ= π/3 |2.1.4
+                // makingStandartGums(580D,720D,440D,yellow2Gum)//ϴ= π/3 |2.1.4
 
         );
         //endregion
 
         //region buildPhoto
+        //camera.setAntiAliasingFactor(9);
+        camera.setImageWriter(new ImageWriter("gumsPicture", 600, 600)) //
+                .renderImage() //
+                .writeToImage();
+        //endregion
+
+        //region buildPhoto+antiAliasing
         camera.setAntiAliasingFactor(9);
-        camera.setImageWriter(new ImageWriter("antiAliasingPicture", 600, 600)) //
+        camera.setImageWriter(new ImageWriter("gumsAntiAliasingPicture", 600, 600)) //
                 .renderImage() //
                 .writeToImage();
         //endregion
