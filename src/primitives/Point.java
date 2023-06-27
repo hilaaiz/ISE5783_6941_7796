@@ -51,6 +51,15 @@ public class Point {
     }
 
     /**
+     * add betwin 2 poins
+     * @param x
+     * @param y
+     * @param z
+     * @return
+     */
+    public Point add(double x, double y, double z){return new Point(x+xyz.d1,y+xyz.d2,z+xyz.d3);}
+
+    /**
      * return vector from point to this
      * @param point
      * @return

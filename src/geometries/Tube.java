@@ -66,7 +66,7 @@ public class Tube extends RadialGeometry{
     }
 
 
-    // TODO: 28/05/2023 max distance 
+
     @Override
     protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
         // solve for t : At^2 + Bt + C = 0
