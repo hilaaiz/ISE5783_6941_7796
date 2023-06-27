@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="gumspicture">
-      <change afterPath="$PROJECT_DIR$/hs_err_pid16568.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid17364.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid24792.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid26408.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid27696.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid28172.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid28368.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid8568.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unitTests/MP2/MP2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unitTests/antiAliasing/gums.java" afterDir="false" />
+    <list default="true" id="c2c6d3e1-bb95-4470-ae8f-31ca956b56ad" name="Changes" comment="gums in jar picture">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/RadialGeometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/RadialGeometry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/Photos/gums.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/geometries/TubeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/geometries/TubeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitTests/Photos/gums.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/Photos/gums.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,22 +87,7 @@
       <recent name="primitives" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MP2">
-    <configuration name="MP2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_6941_7796" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MP2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MP2" />
-      <option name="MAIN_CLASS_NAME" value="MP2.MP2" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.gums.gumsP (1)">
     <configuration name="ShadowTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
@@ -132,17 +103,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gums (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShadowTests.trianglesSphere" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_6941_7796" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="antiAliasing.*" />
+          <option name="PATTERN" value="renderer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="antiAliasing" />
-      <option name="MAIN_CLASS_NAME" value="antiAliasing.gums" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.ShadowTests" />
+      <option name="METHOD_NAME" value="trianglesSphere" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -178,13 +150,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="gums.gumsP" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_6941_7796" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sampling.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sampling" />
+      <option name="MAIN_CLASS_NAME" value="sampling.gums" />
+      <option name="METHOD_NAME" value="gumsP" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MP2" />
-        <item itemvalue="JUnit.gums (1)" />
         <item itemvalue="JUnit.gums.gumsP (1)" />
         <item itemvalue="JUnit.gums" />
         <item itemvalue="JUnit.ShadowTests" />
+        <item itemvalue="JUnit.gums.gumsP" />
+        <item itemvalue="JUnit.ShadowTests.trianglesSphere" />
       </list>
     </recent_temporary>
   </component>
@@ -199,10 +187,7 @@
       <workItem from="1677595047795" duration="1835000" />
       <workItem from="1677598648915" duration="2908000" />
       <workItem from="1687504343924" duration="16285000" />
-      <workItem from="1687644089955" duration="29523000" />
-      <workItem from="1687788195097" duration="650000" />
-      <workItem from="1687796695531" duration="6085000" />
-      <workItem from="1687862356722" duration="1151000" />
+      <workItem from="1687644089955" duration="11870000" />
     </task>
     <task id="LOCAL‎-00001" summary="puse">
       <created>1678879646384</created>
@@ -351,14 +336,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687701662334</updated>
     </task>
-    <task id="LOCAL-00022" summary="gumspicture">
-      <created>1687710260004</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1687710260004</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,8 +373,7 @@
     <MESSAGE value="stage 7" />
     <MESSAGE value="starting gums picture" />
     <MESSAGE value="gums in jar picture" />
-    <MESSAGE value="gumspicture" />
-    <option name="LAST_COMMIT_MESSAGE" value="gumspicture" />
+    <option name="LAST_COMMIT_MESSAGE" value="gums in jar picture" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -410,6 +387,11 @@
           <url>file://$PROJECT_DIR$/unitTests/geometries/CylinderTest.java</url>
           <line>92</line>
           <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/geometries/Tube.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
