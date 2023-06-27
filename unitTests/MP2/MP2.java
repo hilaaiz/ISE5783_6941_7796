@@ -529,14 +529,14 @@ public class MP2 {
         );
         //endregion
 
-//        camera.setAntiAliasingFactor(9);
-//        camera.setImageWriter(new ImageWriter("buttleTrayPictureAnti", 600, 600)) //
-//                .renderImage() //
-//                .writeToImage();
-
-        camera.setUseAdaptive(true).setMaxAdaptiveLevel(3);
-        camera.setImageWriter(new ImageWriter("buttleTrayAdaptivePicture", 600, 600)) //
+        camera.setAntiAliasingFactor(9);
+        camera.setImageWriter(new ImageWriter("buttleTrayPictureAnti", 600, 600)) //
                 .renderImage() //
                 .writeToImage();
+
+//        camera.setUseAdaptive(true).setMaxAdaptiveLevel(3);
+//        camera.setImageWriter(new ImageWriter("buttleTrayPicture", 600, 600)) //
+//                .renderImage() //
+//                .writeToImage();
     }
 }
