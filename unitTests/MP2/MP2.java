@@ -17,14 +17,6 @@ import static java.awt.Color.*;
 
 public class MP2 {
 
-
-    private Sphere makingGums(double r, Double centerX, Double centerY, Double centerZ, Color color){
-
-        return (Sphere)(new Sphere(r,new Point(centerX,centerY,centerZ))
-                .setEmission(color)
-                .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(30)));
-    }
-
     private Polygon squareSetCoefficents (Point corner1,Point corner2,Point corner3,Point corner4){
         return (Polygon)(new Polygon(corner1,corner2,corner3,corner4).setEmission(new Color(20,20,20))
                 .setMaterial( new Material().setkD(0.2).setkS(0.8).setShininess(100).setkT(0.9)));
@@ -96,7 +88,6 @@ public class MP2 {
 
                 new Polygon(v1,v2,v3,v4).setEmission(new Color(101, 60, 61))
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1)),
-//                         new Color(BLACK)).setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
                 new Polygon(v1,v2,b1,b2).setEmission(new Color(101, 60, 61))
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1)),
                 new Polygon(v2,v3,c1,b1).setEmission(wallColor)
@@ -380,7 +371,8 @@ public class MP2 {
 
 
         scene.geometries.add(
-                c31,c32,s3,c33,c34,c35,c36,c37,c38,c39,c310,c311,c313);
+                c31,c32,s3,c33,c34,c35,c36,c37,c38,c39,c310,c311,c313
+        );
         //endregion
 
         //region left bottle on the
@@ -397,11 +389,13 @@ public class MP2 {
         battelPoint=new Point(700,800,13);
 
         //תחתית הבקבוק
-        Cylinder c41= (Cylinder) new Cylinder(radius+5, new Ray(battelPoint,new Vector(0,0,1)),10)
+        Cylinder c41= (Cylinder) new Cylinder(radius+5, new Ray(battelPoint,
+                new Vector(0,0,1)),10)
                 .setEmission(black)
                 .setMaterial( new Material().setkD(0).setkR(0.2).setShininess(50));
 
-        Cylinder c413= (Cylinder) new Cylinder(radius+0.2,new Ray(battelPoint.add(0,0,10),new Vector(0,0,1)),4)
+        Cylinder c413= (Cylinder) new Cylinder(radius+0.2,new Ray(battelPoint.add(0,0,10),
+                new Vector(0,0,1)),4)
                 .setEmission(Brown)
                 .setMaterial( new Material().setkD(0).setkR(0.2).setShininess(50));
 
@@ -418,50 +412,59 @@ public class MP2 {
 
         //החלק העליון
         tempHigh=startHigh+radius-10;
-        Cylinder c43= (Cylinder) new Cylinder(radius1, new Ray(battelPoint.add(0,0,tempHigh),new Vector(0,0,1)),high2)
+        Cylinder c43= (Cylinder) new Cylinder(radius1, new Ray(battelPoint.add(0,0,tempHigh),
+                new Vector(0,0,1)),high2)
                 .setEmission(black)
                 .setMaterial( new Material().setkD(0).setkR(0.2).setShininess(50));
 
         //טבעת ראשונה
         tempHigh+=high2;
-        Cylinder c44= (Cylinder) new Cylinder(radius1+5, new Ray(battelPoint.add(0,0,tempHigh),new Vector(0,0,1)),high3)
+        Cylinder c44= (Cylinder) new Cylinder(radius1+5, new Ray(battelPoint.add(0,0,tempHigh),
+                new Vector(0,0,1)),high3)
                 .setEmission(black)
                 .setMaterial( new Material().setkD(0).setkR(0.2).setShininess(50));
 
         //טבעת עבה יותר
         tempHigh+=10;
-        Cylinder c45= (Cylinder) new Cylinder(radius2, new Ray(battelPoint.add(0,0,tempHigh),new Vector(0,0,1)),high4)
+        Cylinder c45= (Cylinder) new Cylinder(radius2, new Ray(battelPoint.add(0,0,tempHigh),
+                new Vector(0,0,1)),high4)
                 .setEmission(black)
                 .setMaterial( new Material().setkD(0).setkR(0.2).setShininess(50));
 
         //פקק
         tempHigh+=30;
-        Cylinder c46= (Cylinder) new Cylinder(radius1-1, new Ray(battelPoint.add(0,0,tempHigh),new Vector(0,0,1)),high5)
+        Cylinder c46= (Cylinder) new Cylinder(radius1-1, new Ray(battelPoint.add(0,0,tempHigh),
+                new Vector(0,0,1)),high5)
                 .setEmission(Brown)
                 .setMaterial( new Material().setkD(0).setkR(0.2).setShininess(50));
 
         //פתק
-        Cylinder c47= (Cylinder) new Cylinder(radius+2, new Ray(battelPoint.add(0,0,100),new Vector(0,0,1)),100)
+        Cylinder c47= (Cylinder) new Cylinder(radius+2, new Ray(battelPoint.add(0,0,100),
+                new Vector(0,0,1)),100)
                 .setEmission(LightBrown)
                 .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(30));
 
         //פס קישוט על הפתק
-        Cylinder c48= (Cylinder) new Cylinder(radius+2.2, new Ray(battelPoint.add(0,0,120),new Vector(0,0,1)),5)
+        Cylinder c48= (Cylinder) new Cylinder(radius+2.2, new Ray(battelPoint.add(0,0,120),
+                new Vector(0,0,1)),5)
                 .setEmission(Brown)
                 .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(30));
 
         //פס קישוט על הפתק
-        Cylinder c49= (Cylinder) new Cylinder(radius+2.2, new Ray(battelPoint.add(0,0,175),new Vector(0,0,1)),5)
+        Cylinder c49= (Cylinder) new Cylinder(radius+2.2, new Ray(battelPoint.add(0,0,175),
+                new Vector(0,0,1)),5)
                 .setEmission(Brown)
                 .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(30));
 
         //פס קישוט על הפתק
-        Cylinder c410= (Cylinder) new Cylinder(radius+2.2, new Ray(battelPoint.add(0,0,130),new Vector(0,0,1)),10)
+        Cylinder c410= (Cylinder) new Cylinder(radius+2.2, new Ray(battelPoint.add(0,0,130),
+                new Vector(0,0,1)),10)
                 .setEmission(Brown)
                 .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(30));
 
         //פס קישוט על הפתק
-        Cylinder c411= (Cylinder) new Cylinder(radius+2.2, new Ray(battelPoint.add(0,0,160),new Vector(0,0,1)),10)
+        Cylinder c411= (Cylinder) new Cylinder(radius+2.2, new Ray(battelPoint.add(0,0,160),
+                new Vector(0,0,1)),10)
                 .setEmission(Brown)
                 .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(30));
 

@@ -17,23 +17,24 @@ public class gums {
 
 
     private Scene scene = new Scene("Test scene");
-    private Camera camera = new Camera(new Point(2000, 600, 400), new Vector(-1, 0, 0), new Vector(0, 0, 1)) //
-            .setVPSize(200, 200).setVPDistance(260) //
+    private Camera camera = new Camera(new Point(2000, 600, 400), new Vector(-1, 0, 0),
+            new Vector(0, 0, 1))
+            .setVPSize(200, 200).setVPDistance(260)
             .setRayTracer(new RayTracerBasic(scene));
 
 
     //sphere functions for making gum
     private int GumRadius= 40;
-    private Sphere makingStandardGums(Double centerX, Double centerY, Double centerZ, Color color){
+    private Geometry makingStandardGums(Double centerX, Double centerY, Double centerZ, Color color){
 
         return makingGums(GumRadius,centerX,centerY,centerZ,color);
     }
 
-    private Sphere makingGums(double r, Double centerX, Double centerY, Double centerZ, Color color){
+    private Geometry makingGums(double r, Double centerX, Double centerY, Double centerZ, Color color){
 
-        return (Sphere)(new Sphere(r,new Point(centerX,centerY,centerZ))
+        return new Sphere(r,new Point(centerX,centerY,centerZ))
                 .setEmission(color)
-                .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(30)));
+                .setMaterial(new Material().setkD(0.5).setkS(0.5).setShininess(30));
     }
 
 
@@ -83,7 +84,8 @@ public class gums {
                 c2,
                 new Vector(-1,1,-1));
 
-        DirectionalLight directionalLight = new DirectionalLight(new Color(gray),new Vector(1,1,0));//new Point(1000D,600D,0D)
+        DirectionalLight directionalLight = new DirectionalLight(new Color(gray),
+                new Vector(1,1,0));//new Point(1000D,600D,0D)
 
         scene.lights.add(pointLight);
         scene.lights.add(Spot);
@@ -95,7 +97,6 @@ public class gums {
 
                 new Polygon(v1,v2,v3,v4).setEmission(new Color(BLACK))
                         .setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
-//                         new Color(BLACK)).setMaterial(new Material().setkD(0).setkR(0.2).setShininess(50)),
                 new Polygon(v1,v2,b1,b2).setEmission(Flor)
                         .setMaterial(new Material().setkS(0.2).setkD(0.1).setkT(0.9).setShininess(1)),
                 new Polygon(v2,v3,c1,b1).setEmission(Flor)
@@ -117,16 +118,20 @@ public class gums {
 
         //region cylinders
         //צנצנת ראשית
-        Cylinder cylinder= (Cylinder) new Cylinder(radius, new Ray(new Point(500,600,0),new Vector(0,0,1)),startHigh)
+        Cylinder cylinder= (Cylinder) new Cylinder(radius, new Ray(new Point(500,600,0),
+                new Vector(0,0,1)),startHigh)
                 .setEmission(new Color(0,0,0))
                 .setMaterial( new Material().setkD(0.2).setkS(0.8).setShininess(100).setkT(0.9));
         //תחתית הצנצנת
-        Cylinder cylinder1= (Cylinder) new Cylinder(radius, new Ray(new Point(500,600,0),new Vector(0,0,1)),10)
+        Cylinder cylinder1= (Cylinder) new Cylinder(radius, new Ray(new Point(500,600,0),
+                new Vector(0,0,1)),10)
                 .setEmission(new Color(0, 0, 0))
                 .setMaterial( new Material().setkD(0.1).setkS( 0.2).setShininess(1).setkT(1.0));
 
         //המכסה של הצנצנת
-        Cylinder cylinder2= (Cylinder) new Cylinder(radius+10, new Ray(new Point(500,600,startHigh+sumLoop1*hige1),new Vector(0,0,1)),50)
+        Cylinder cylinder2= (Cylinder) new Cylinder(radius+10,
+                new Ray(new Point(500,600,startHigh+sumLoop1*hige1),
+                        new Vector(0,0,1)),50)
                 .setEmission(new Color(188, 48, 152))
                 .setMaterial( new Material().setkD(0.8).setkS( 0.1).setShininess(50).setkT(0.5));
 
@@ -137,7 +142,8 @@ public class gums {
         for(int i=0;i<sumLoop1;i++){
             radius-=0.3;
             cylinder= (Cylinder) new Cylinder
-                    (radius,new Ray(new Point(500,600,startHigh+(i*hige1)),new Vector(0,0,1)),hige1)
+                    (radius,new Ray(new Point(500,600,startHigh+(i*hige1)),
+                            new Vector(0,0,1)),hige1)
                     .setEmission(new Color(0,0,0))
                     .setMaterial( new Material().setkD(0.2).setkS(0.8).setShininess(100).setkT(0.9));
             scene.geometries.add(cylinder);
@@ -167,8 +173,6 @@ public class gums {
         //r is the radius of the spheres
 
         scene.geometries.add(
-
-                //makingStandartGums(580D,720D,120D,pinkGum),//ϴ=0 |1.1.1
 
                 // region floor 0
                 makingStandardGums(580D,600D,50D,pinkGum),//ϴ=0 |1.0.0
@@ -275,22 +279,21 @@ public class gums {
                 makingStandardGums(345D,630D,370D,blue1Gum)//ϴ= π  |0004.3.4 *
                 //endregion
 
-                // makingStandartGums(580D,720D,440D,yellow2Gum)//ϴ= π/3 |2.1.4
 
         );
         //endregion
 
         //region buildPhoto
         //camera.setAntiAliasingFactor(9);
-        camera.setImageWriter(new ImageWriter("gumsPicture", 600, 600)) //
-                .renderImage() //
+        camera.setImageWriter(new ImageWriter("gumsPicture", 600, 600))
+                .renderImage()
                 .writeToImage();
         //endregion
 
 //        //region buildPhoto
 //        camera.setAntiAliasingFactor(9);
-//        camera.setImageWriter(new ImageWriter("gumsAntiAliasingPicture", 600, 600)) //
-//                .renderImage() //
+//        camera.setImageWriter(new ImageWriter("gumsAntiAliasingPicture", 600, 600))
+//                .renderImage()
 //                .writeToImage();
 //        //endregion
 
