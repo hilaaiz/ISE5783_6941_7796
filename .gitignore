@@ -29,3 +29,17 @@ bin/
 .DS_Store
 /images/
 /.idea/
+
+### Ignore all images by default ###
+/images/
+
+### But include specific PNG images ###
+!/images/gumsAntiAliasingPicture.png
+!/images/gumPicture.png
+!/images/antiAliasingPicture2.png
+!/images/buttlePicture.png
+!/images/buttleTrayAdaptivePicture.png
+!/images/buttleTrayPicture.png
+!/images/shadowTrianglesSphere.png
+!/images/shadowSphereTriangleSpot1.png
+!/images/shadowSphereTriangleMove2.png
