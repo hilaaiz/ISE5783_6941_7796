@@ -1,5 +1,9 @@
-# ISE5783_6941_7796 — Ray Tracing Engine
-![Main Render](images/gumsAntiAliasingPicture.png)
+#  Ray Tracing Engine
+
+<div align="center">
+<img src="images/gumsAntiAliasingPicture.png" width="400" alt="Gum Jar Final Render">
+<img src="images/buttleTrayAdaptivePicture.png" width="400" alt="Wine Bottles Final Render">
+</div>
 
 ---
 
@@ -61,25 +65,25 @@ unittests/              # TDD unit test coverage
 
 ### Gum Jar Scene Evolution
 
-**Initial Setup**
-![Scene Setup](images/antiAliasingPicture2.png)
+**Initial Setup**  
+<img src="images/antiAliasingPicture2.png" width="350" alt="Scene Setup">
 
-**Complete Rendering**
-![Standard Quality](images/gumPicture.png)
+**Complete Rendering**  
+<img src="images/gumPicture.png" width="350" alt="Standard Quality">
 
-**Anti-Aliased Final Result**
-![Final Quality](images/gumsAntiAliasingPicture.png)
+**Anti-Aliased Final Result**  
+<img src="images/gumsAntiAliasingPicture.png" width="350" alt="Final Quality">
 
 ### Wine Bottle Scene
 
-**Basic Scene**
-![Basic Setup](images/buttlePicture.png)
+**Basic Scene**  
+<img src="images/buttlePicture.png" width="350" alt="Basic Setup">
 
-**With Glass Tray**
-![Complex Scene](images/buttleTrayPicture.png)
+**With Glass Tray**  
+<img src="images/buttleTrayPicture.png" width="350" alt="Complex Scene">
 
-**Final Rendering**
-![Photorealistic Result](images/buttleTrayAdaptivePicture.png)
+**Final Rendering**  
+<img src="images/buttleTrayAdaptivePicture.png" width="350" alt="Photorealistic Result">
 
 ---
 
