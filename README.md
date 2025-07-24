@@ -66,7 +66,7 @@ unittests/              # TDD unit test coverage
 ### Gum Jar Scene Evolution
 
 **Initial Setup**  
-<img src="images/antiAliasingPicture2.png" width="350" alt="Scene Setup">
+<img src="images/firstPositionGum.jpg" width="350" alt="Scene Setup">
 
 **Complete Rendering**  
 <img src="images/gumPicture.png" width="350" alt="Standard Quality">
@@ -77,7 +77,7 @@ unittests/              # TDD unit test coverage
 ### Wine Bottle Scene
 
 **Basic Scene**  
-<img src="images/buttlePicture.png" width="350" alt="Basic Setup">
+<img src="images/firstPositionBottle.jpg" width="350" alt="Basic Setup">
 
 **With Glass Tray**  
 <img src="images/buttleTrayPicture.png" width="350" alt="Complex Scene">
